@@ -1,0 +1,33 @@
+
+<mat-toolbar>
+    <mat-toolbar-row>
+        <button mat-raised-button [matMenuTriggerFor]="jogo">Temporada</button>
+        <mat-menu #jogo="matMenu">
+            <button mat-menu-item (click)="novaTemporada()">Nova Temporada</button>
+        </mat-menu>
+
+        <button mat-raised-button [matMenuTriggerFor]="cal">Partidas</button>
+        <mat-menu #cal="matMenu">
+            <button mat-menu-item (click)="jogarPartidas()">Jogar</button>
+            <a mat-menu-item routerLink="/partidasClube">Por Clube</a>
+            <button mat-menu-item routerLink="/partidasSemana">Por Semana</button>
+            <button mat-menu-item routerLink="/partidasCampeonato">Por Campeonato</button>
+        </mat-menu>
+
+        <button mat-raised-button [matMenuTriggerFor]="clas">Classificação</button>
+        <mat-menu #clas="matMenu">
+            <button mat-menu-item [routerLink]="['/classificacao/nacional']" routerLinkActive="selected">Nacional</button>
+            <button mat-menu-item [routerLink]="['/classificacao/continental']" routerLinkActive="selected">Continental</button>
+        </mat-menu>
+
+        <button mat-raised-button [matMenuTriggerFor]="jogador">Jogadores</button>
+        <mat-menu #jogador="matMenu">
+            <button mat-menu-item routerLink="/jogadores">Por Clube</button>
+        </mat-menu>
+
+        <button mat-raised-button [matMenuTriggerFor]="ranking">Ranking</button>
+        <mat-menu #ranking="matMenu">
+            <button mat-menu-item routerLink="/clubeRanking">Por Clube</button>
+        </mat-menu>
+    </mat-toolbar-row>
+</mat-toolbar>

@@ -1,0 +1,33 @@
+<mat-form-field>
+    <mat-select [(value)]="ligaSelected" (selectionChange)="ligaChangeAction()">
+        <mat-option [value]="liga" *ngFor="let liga of ligasItens">
+            {{liga}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+    <mat-select [(value)]="clubeSelected" (selectionChange)="clubeChangeAction()">
+        <mat-option [value]="c" *ngFor="let c of clubesItens">
+            {{c.nomeClube}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+
+<table mat-table matSort [dataSource]="jogadoresDataSource">
+    <ng-container matColumnDef="nomeJogador">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdMed">Nome</th>
+        <td mat-cell *matCellDef="let j">{{j.nome}}</td>
+    </ng-container>
+    <ng-container matColumnDef="posicao">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdMed">Posição</th>
+        <td mat-cell *matCellDef="let j">{{j.posicao}}</td>
+    </ng-container>
+    <ng-container matColumnDef="numero">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">Número</th>
+        <td mat-cell *matCellDef="let j">{{j.numero}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
