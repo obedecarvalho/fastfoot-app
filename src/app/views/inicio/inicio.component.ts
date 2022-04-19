@@ -11,6 +11,8 @@ import { TemporadaService } from 'src/app/service/temporada.service';
 //https://balta.io/blog/angular-rotas-guardas-navegacao
 export class InicioComponent implements OnInit {
 
+  progressBarEnable = false;
+
   constructor(
     private partidaService: PartidaService,
     private temporadaService: TemporadaService,
@@ -22,17 +24,22 @@ export class InicioComponent implements OnInit {
   }
 
   public jogarPartidas(): void {
+    this.progressBarEnable = true;
     console.log("jogarPartidas")
     this.partidaService.jogarPartidas().subscribe( data => {
       console.log('Semana:' + data.numero);
+      this.progressBarEnable = false;
       this.router.navigate(['/partidasSemana'], {queryParams : {semana: data.numero}});
     });
   }
 
   public novaTemporada(): void {
     console.log("novaTemporada")
+    this.progressBarEnable = true;
     this.temporadaService.novaTemporada().subscribe( data => {
       console.log('Temporada:' + data.ano);
+      this.progressBarEnable = false;
+      this.router.navigate(['/partidasSemana'], {queryParams : {semana: 1}});
     });
   }
 }

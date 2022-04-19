@@ -20,6 +20,7 @@ import { ClassificacaoNacionalComponent } from './views/classificacao-nacional/c
 import {MatTabsModule} from '@angular/material/tabs';
 import { ClubeRankingComponent } from './views/clube-ranking/clube-ranking.component';
 import { JogadorComponent } from './views/jogador/jogador.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { JogadorComponent } from './views/jogador/jogador.component';
     MatToolbarModule,
     MatButtonModule,
     MatSelectModule,
-    MatTabsModule
+    MatTabsModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
