@@ -9,9 +9,9 @@
         <button mat-raised-button [matMenuTriggerFor]="cal">Partidas</button>
         <mat-menu #cal="matMenu">
             <button mat-menu-item (click)="jogarPartidas()">Jogar</button>
-            <a mat-menu-item routerLink="/partidasClube">Por Clube</a>
-            <button mat-menu-item routerLink="/partidasSemana">Por Semana</button>
-            <button mat-menu-item routerLink="/partidasCampeonato">Por Campeonato</button>
+            <button mat-menu-item routerLink="/partidasClube" routerLinkActive="selected">Por Clube</button>
+            <button mat-menu-item routerLink="/partidasSemana" routerLinkActive="selected">Por Semana</button>
+            <button mat-menu-item routerLink="/partidasCampeonato" routerLinkActive="selected">Por Campeonato</button>
         </mat-menu>
 
         <button mat-raised-button [matMenuTriggerFor]="clas">Classificação</button>
@@ -22,12 +22,12 @@
 
         <button mat-raised-button [matMenuTriggerFor]="jogador">Jogadores</button>
         <mat-menu #jogador="matMenu">
-            <button mat-menu-item routerLink="/jogadores">Por Clube</button>
+            <button mat-menu-item routerLink="/jogadores" routerLinkActive="selected">Por Clube</button>
         </mat-menu>
 
         <button mat-raised-button [matMenuTriggerFor]="ranking">Ranking</button>
         <mat-menu #ranking="matMenu">
-            <button mat-menu-item routerLink="/clubeRanking">Por Clube</button>
+            <button mat-menu-item routerLink="/clubeRanking" routerLinkActive="selected">Por Clube</button>
         </mat-menu>
     </mat-toolbar-row>
 </mat-toolbar>

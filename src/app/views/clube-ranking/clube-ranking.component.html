@@ -1,10 +1,20 @@
 <mat-form-field>
-    <mat-select [(value)]="ligaSelected" (selectionChange)="ligaChangeAction()">
+    <mat-select [(value)]="temporadaSelected">
+        <mat-option [value]="t" *ngFor="let t of temporadaItens">
+            {{t.ano}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+    <mat-select [(value)]="ligaSelected">
         <mat-option [value]="liga" *ngFor="let liga of ligasItens">
             {{liga}}
         </mat-option>
     </mat-select>
 </mat-form-field>
+
+<button mat-raised-button (click)="btSearchAction()">Buscar</button>
 
 <table mat-table [dataSource]="clubeRankingDataSource" matSort>
     <ng-container matColumnDef="clubeNome">
