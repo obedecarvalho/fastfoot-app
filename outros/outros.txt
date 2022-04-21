@@ -1,1 +1,9 @@
 ng serve --watch --live-reload --poll 2000
+
+ng build #gerar arquivos estaticos do Angular
+
+#Inserir arquivos gerados no build ('dist/fastfoot-app') no projeto SpringBoot ('target/classes/static/')
+#cp -r dist/fastfoot-app/* ../../workspace-eclipse/fastfoot/src/main/resources/static/
+#?cp -r dist/fastfoot-app/* ../../workspace-eclipse/fastfoot/target/classes/static/
+
+python3 -m http.server #simples servidor http para testar 'ng build'
