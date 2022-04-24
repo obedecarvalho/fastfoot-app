@@ -30,8 +30,9 @@ export class PartidasSemanaComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(p => {
-      this.semanaSelected = p['semana'];
+      console.log('carregando jogos semana');
       if (p['semana'] != null){
+        this.semanaSelected = p['semana'];
         this.semanaChangeAction();
       }
     })

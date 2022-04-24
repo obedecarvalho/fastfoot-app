@@ -8,8 +8,10 @@ import { ClubeRanking } from '../model/clube-ranking.model';
 })
 export class ClubeRankingService {
 
-  apiUrlClubesRankings = 'http://localhost:8081/clubesRankings/'
-  paramsClubesRankings = '?ano='
+  apiUrlClubesRankings = 'http://localhost:8081/clubesRankings/';
+  paramsClubesRankings = '?ano=';
+
+  apiUrlAnoClubeRankingItens = 'http://localhost:8081/anoClubeRankingItens/';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -21,5 +23,10 @@ export class ClubeRankingService {
   public getClubesRankingLigaAno(liga: string, ano: number): Observable<ClubeRanking[]>{
     console.log(this.apiUrlClubesRankings + liga);
     return this.httpClient.get<ClubeRanking[]>(this.apiUrlClubesRankings + liga + this.paramsClubesRankings + ano);
+  }
+
+  public getAnoClubeRankingItens(): Observable<number[]>{
+    console.log(this.apiUrlAnoClubeRankingItens);
+    return this.httpClient.get<number[]>(this.apiUrlAnoClubeRankingItens);
   }
 }

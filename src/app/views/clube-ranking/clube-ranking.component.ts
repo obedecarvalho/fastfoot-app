@@ -21,11 +21,15 @@ export class ClubeRankingComponent implements OnInit {
 
   displayedColumns: string[] = ['clubeNome', 'posicaoGeral', 'classificacaoContinental', 'classificacaoNacional', 'classificacaoCopaNacional'];
 
+  anoItens: number[];
+
   clubeRankingDataSource: MatTableDataSource<ClubeRanking>;
 
   ligaSelected: string;
 
   temporadaSelected: Temporada;
+
+  anoSelected: number;
 
   constructor(
     private clubeRankingService: ClubeRankingService,
@@ -33,7 +37,7 @@ export class ClubeRankingComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getTemporadas();
+    this.getAnoClubeRankingItens();
   }
 
   public getTemporadas(){
@@ -44,11 +48,20 @@ export class ClubeRankingComponent implements OnInit {
     )
   }
 
+  public getAnoClubeRankingItens(){
+    console.log("getAnoClubeRankingItens#");
+    this.clubeRankingService.getAnoClubeRankingItens().subscribe(
+      data => {
+        this.anoItens = data;
+      }
+    )
+  }
+
   //TODO: validar dados
   //TODO: melhorar seleção de ano
   public btSearchAction(){
     console.log('ligaChangeAction#');
-    this.clubeRankingService.getClubesRankingLigaAno(this.ligaSelected, this.temporadaSelected.ano - 1).subscribe(
+    this.clubeRankingService.getClubesRankingLigaAno(this.ligaSelected, this.anoSelected).subscribe(
       data => {
         this.clubeRankingDataSource = new MatTableDataSource(data);
         this.clubeRankingDataSource.sort = this.sort;
