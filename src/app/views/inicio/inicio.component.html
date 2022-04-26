@@ -1,14 +1,16 @@
 
 <mat-toolbar>
     <mat-toolbar-row>
+        <!--
         <button mat-raised-button [matMenuTriggerFor]="jogo">Temporada</button>
         <mat-menu #jogo="matMenu">
             <button mat-menu-item (click)="novaTemporada()">Nova Temporada</button>
         </mat-menu>
+        -->
 
         <button mat-raised-button [matMenuTriggerFor]="cal">Partidas</button>
         <mat-menu #cal="matMenu">
-            <button mat-menu-item (click)="jogarPartidas()">Jogar</button>
+            <!--<button mat-menu-item (click)="jogarPartidas()">Jogar</button>-->
             <button mat-menu-item routerLink="/partidasClube" routerLinkActive="selected">Por Clube</button>
             <button mat-menu-item routerLink="/partidasSemana" routerLinkActive="selected">Por Semana</button>
             <button mat-menu-item routerLink="/partidasCampeonato" routerLinkActive="selected">Por Campeonato</button>
@@ -29,6 +31,10 @@
         <mat-menu #ranking="matMenu">
             <button mat-menu-item routerLink="/clubeRanking" routerLinkActive="selected">Por Clube</button>
         </mat-menu>
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+        <button mat-raised-button (click)="novaTemporada()" [disabled]="progressBarEnable">Nova Temporada</button>
+        <button mat-raised-button (click)="jogarPartidas()" [disabled]="progressBarEnable">Jogar Partidas</button>
     </mat-toolbar-row>
 </mat-toolbar>
 <mat-progress-bar mode="indeterminate" *ngIf="progressBarEnable" ></mat-progress-bar>

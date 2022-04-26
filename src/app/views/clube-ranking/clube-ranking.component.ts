@@ -57,6 +57,10 @@ export class ClubeRankingComponent implements OnInit {
     )
   }
 
+  public clearChangeAction(){
+    this.clubeRankingDataSource = null;
+  }
+
   //TODO: validar dados
   //TODO: melhorar seleção de ano
   public btSearchAction(){

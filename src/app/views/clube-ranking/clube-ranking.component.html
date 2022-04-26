@@ -1,5 +1,5 @@
 <mat-form-field>
-    <mat-select [(value)]="anoSelected">
+    <mat-select [(value)]="anoSelected" (selectionChange)="clearChangeAction()">
         <mat-option [value]="a" *ngFor="let a of anoItens">
             {{a}}
         </mat-option>
@@ -7,7 +7,7 @@
 </mat-form-field>
 
 <mat-form-field>
-    <mat-select [(value)]="ligaSelected">
+    <mat-select [(value)]="ligaSelected" (selectionChange)="clearChangeAction()">
         <mat-option [value]="liga" *ngFor="let liga of ligasItens">
             {{liga}}
         </mat-option>
