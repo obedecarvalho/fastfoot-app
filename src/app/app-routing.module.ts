@@ -8,6 +8,7 @@ import { JogadorComponent } from './views/jogador/jogador.component';
 import { PartidasCampeonatoComponent } from './views/partidas-campeonato/partidas-campeonato.component';
 import { PartidasClubeComponent } from './views/partidas-clube/partidas-clube.component';
 import { PartidasSemanaComponent } from './views/partidas-semana/partidas-semana.component';
+import { ProbabilidadesComponent } from './views/probabilidades/probabilidades.component';
 
 const routes: Routes = [
   /*{
@@ -41,7 +42,11 @@ const routes: Routes = [
   {
     path: 'partidasCampeonato',
     component: PartidasCampeonatoComponent
-  }  
+  },
+  {
+    path: 'probabilidades/nacional',
+    component: ProbabilidadesComponent
+  }
 ];
 
 @NgModule({

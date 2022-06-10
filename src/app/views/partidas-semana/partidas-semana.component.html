@@ -27,11 +27,19 @@
     </ng-container>
     <ng-container matColumnDef="golsMandante">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq"></th>
-        <td mat-cell *matCellDef="let partida">{{partida.golsMandante}}</td>
+        <td mat-cell *matCellDef="let partida">
+            <span *ngIf="partida.partidaJogada">
+                {{partida.golsMandante}}
+            </span>
+        </td>
     </ng-container>
     <ng-container matColumnDef="golsVisitante">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq"></th>
-        <td mat-cell *matCellDef="let partida">{{partida.golsVisitante}}</td>
+        <td mat-cell *matCellDef="let partida">
+            <span *ngIf="partida.partidaJogada">
+                {{partida.golsVisitante}}
+            </span>
+        </td>
     </ng-container>
     <ng-container matColumnDef="nomeClubeVisitante">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdMed">Visitante</th>

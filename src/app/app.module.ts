@@ -21,6 +21,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { ClubeRankingComponent } from './views/clube-ranking/clube-ranking.component';
 import { JogadorComponent } from './views/jogador/jogador.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { ProbabilidadesComponent } from './views/probabilidades/probabilidades.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     ClassificacaoContinentalComponent,
     ClassificacaoNacionalComponent,
     ClubeRankingComponent,
-    JogadorComponent
+    JogadorComponent,
+    ProbabilidadesComponent
   ],
   imports: [
     BrowserModule,

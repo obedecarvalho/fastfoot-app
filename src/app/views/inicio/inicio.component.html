@@ -31,6 +31,11 @@
         <mat-menu #ranking="matMenu">
             <button mat-menu-item routerLink="/clubeRanking" routerLinkActive="selected">Por Clube</button>
         </mat-menu>
+
+        <button mat-raised-button [matMenuTriggerFor]="probabilidades">Probabilidades</button>
+        <mat-menu #probabilidades="matMenu">
+            <button mat-menu-item [routerLink]="['/probabilidades/nacional']" routerLinkActive="selected">Nacional</button>
+        </mat-menu>
     </mat-toolbar-row>
     <mat-toolbar-row>
         <button mat-raised-button (click)="novaTemporada()" [disabled]="progressBarEnable">Nova Temporada</button>
