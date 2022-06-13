@@ -20,6 +20,8 @@
         <mat-menu #clas="matMenu">
             <button mat-menu-item [routerLink]="['/classificacao/nacional']" routerLinkActive="selected">Nacional</button>
             <button mat-menu-item [routerLink]="['/classificacao/continental']" routerLinkActive="selected">Continental</button>
+            <button mat-menu-item [routerLink]="['/probabilidades/nacional']" routerLinkActive="selected">Nacional Probabilidades</button>
+            <button mat-menu-item [routerLink]="['/probabilidades/nacional']" routerLinkActive="selected">Nacional II Probabilidades</button>
         </mat-menu>
 
         <button mat-raised-button [matMenuTriggerFor]="jogador">Jogadores</button>
@@ -32,10 +34,6 @@
             <button mat-menu-item routerLink="/clubeRanking" routerLinkActive="selected">Por Clube</button>
         </mat-menu>
 
-        <button mat-raised-button [matMenuTriggerFor]="probabilidades">Probabilidades</button>
-        <mat-menu #probabilidades="matMenu">
-            <button mat-menu-item [routerLink]="['/probabilidades/nacional']" routerLinkActive="selected">Nacional</button>
-        </mat-menu>
     </mat-toolbar-row>
     <mat-toolbar-row>
         <button mat-raised-button (click)="novaTemporada()" [disabled]="progressBarEnable">Nova Temporada</button>

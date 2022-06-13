@@ -3,7 +3,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Campeonato } from 'src/app/model/campeonato.model';
-import { Classificacao } from 'src/app/model/classificacao.model';
+import { ClassificacaoProbabilidade } from 'src/app/model/classificacao-probabilidade.model';
 import { ClassificacaoService } from 'src/app/service/classificacao.service';
 import { TemporadaService } from 'src/app/service/temporada.service';
 
@@ -16,9 +16,9 @@ export class ProbabilidadesComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns: string[] = ['posicao', 'nomeClube', 'jogos', 'pontos', 'vitorias', 'empates', 'derrotas', 'saldoGols', 'golsPro', 'golsContra'];
+  displayedColumns: string[] = ['posicao', 'nomeClube', 'pontos', 'vitorias', 'saldoGols', 'probCampeao', 'probRebAce', 'probCont', 'probCopNac'];
 
-  classificacoesSource: MatTableDataSource<Classificacao>;
+  classificacoesSource: MatTableDataSource<ClassificacaoProbabilidade>;
 
   campeonatosItens: Campeonato[];
 
@@ -44,9 +44,9 @@ export class ProbabilidadesComponent implements OnInit {
   }
 
   public campeonatoChangeAction(){
-    this.classificacaoService.getClassificacaoPorCampeonato(this.campeonatoSelected.idCampeonato, 'NACIONAL').subscribe(
+    this.classificacaoService.getClassificacaoPorCampeonatoComProbabilidade(this.campeonatoSelected.idCampeonato).subscribe(
       data => {
-        this.classificacoesSource = new MatTableDataSource<Classificacao>(data);
+        this.classificacoesSource = new MatTableDataSource<ClassificacaoProbabilidade>(data);
         this.classificacoesSource.sort = this.sort;
       }
     )

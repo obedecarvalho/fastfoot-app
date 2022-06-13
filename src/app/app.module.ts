@@ -22,6 +22,7 @@ import { ClubeRankingComponent } from './views/clube-ranking/clube-ranking.compo
 import { JogadorComponent } from './views/jogador/jogador.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { ProbabilidadesComponent } from './views/probabilidades/probabilidades.component';
+import {CdkAccordionModule} from '@angular/cdk/accordion';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { ProbabilidadesComponent } from './views/probabilidades/probabilidades.c
     MatButtonModule,
     MatSelectModule,
     MatTabsModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    CdkAccordionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
