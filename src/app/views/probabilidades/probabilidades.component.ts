@@ -16,7 +16,7 @@ export class ProbabilidadesComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns: string[] = ['posicao', 'nomeClube', 'pontos', 'vitorias', 'saldoGols', 'probCampeao', 'probRebAce', 'probCont', 'probCopNac'];
+  displayedColumns: string[] = ['posicao', 'nomeClube', 'pontos', 'vitorias', 'saldoGols', 'probCampeao', 'probRebAce', 'probCont', 'probContII', 'probContIII', 'probCopNac'];
 
   classificacoesSource: MatTableDataSource<ClassificacaoProbabilidade>;
 

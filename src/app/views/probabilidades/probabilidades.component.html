@@ -66,12 +66,20 @@
         </td>
     </ng-container>
     <ng-container matColumnDef="probCont">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">Continental</th>
-        <td mat-cell *matCellDef="let class">{{class.probabilidadeClassificacaoContinental}}</td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">CI</th>
+        <td mat-cell *matCellDef="let class">{{class.probabilidadeClassificacaoCI}}</td>
+    </ng-container>
+    <ng-container matColumnDef="probContII">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">CII</th>
+        <td mat-cell *matCellDef="let class">{{class.probabilidadeClassificacaoCII}}</td>
+    </ng-container>
+    <ng-container matColumnDef="probContIII">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">CIII</th>
+        <td mat-cell *matCellDef="let class">{{class.probabilidadeClassificacaoCIII}}</td>
     </ng-container>
     <ng-container matColumnDef="probCopNac">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">Copa Nacional</th>
-        <td mat-cell *matCellDef="let class">{{class.probabilidadeClassificacaoCopaNacional}}</td>
+        <td mat-cell *matCellDef="let class">{{class.probabilidadeClassificacaoCNI}}</td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
