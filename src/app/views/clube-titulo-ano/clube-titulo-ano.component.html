@@ -1,0 +1,37 @@
+<mat-form-field>
+    <mat-select [(value)]="anoSelected" (selectionChange)="clearChangeAction()">
+        <mat-option [value]="a + 1" *ngFor="let a of anoItens">
+            {{a + 1}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+
+<!--<mat-form-field>
+    <mat-select [(value)]="ligaSelected" (selectionChange)="clearChangeAction()">
+        <mat-option [value]="liga" *ngFor="let liga of ligasItens">
+            {{liga}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>-->
+
+<button mat-raised-button (click)="btSearchAction()">Buscar</button>
+
+<table mat-table [dataSource]="clubeRankingDataSource" matSort>
+    <ng-container matColumnDef="clubeNome">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdMed">Clube</th>
+        <td mat-cell *matCellDef="let cr">{{cr.clubeNome}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="nivelCampeonato">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdMed">Campeonato</th>
+        <td mat-cell *matCellDef="let cr">{{cr.nivelCampeonato}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="ano">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">Ano</th>
+        <td mat-cell *matCellDef="let cr">{{cr.ano}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

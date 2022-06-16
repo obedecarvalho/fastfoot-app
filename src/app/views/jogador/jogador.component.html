@@ -27,6 +27,19 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">Número</th>
         <td mat-cell *matCellDef="let j">{{j.numero}}</td>
     </ng-container>
+    <ng-container matColumnDef="idade">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">Idade</th>
+        <td mat-cell *matCellDef="let j">{{j.idade}}</td>
+    </ng-container>
+    <ng-container matColumnDef="forca">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">Força</th>
+        <td mat-cell *matCellDef="let j">{{j.forcaGeral}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="passe">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">Passe</th>
+        <td mat-cell *matCellDef="let j">{{j.valorPasse}}</td>
+    </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

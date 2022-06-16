@@ -23,6 +23,9 @@ import { JogadorComponent } from './views/jogador/jogador.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { ProbabilidadesComponent } from './views/probabilidades/probabilidades.component';
 import {CdkAccordionModule} from '@angular/cdk/accordion';
+import { PartidasAmistosasComponent } from './views/partidas-amistosas/partidas-amistosas.component';
+import { ClubeTitulosRankingComponent } from './views/clube-titulos-ranking/clube-titulos-ranking.component';
+import { ClubeTituloAnoComponent } from './views/clube-titulo-ano/clube-titulo-ano.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import {CdkAccordionModule} from '@angular/cdk/accordion';
     ClassificacaoNacionalComponent,
     ClubeRankingComponent,
     JogadorComponent,
-    ProbabilidadesComponent
+    ProbabilidadesComponent,
+    PartidasAmistosasComponent,
+    ClubeTitulosRankingComponent,
+    ClubeTituloAnoComponent
   ],
   imports: [
     BrowserModule,

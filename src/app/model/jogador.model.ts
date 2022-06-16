@@ -3,6 +3,8 @@ export class Jogador {
     clubeNome: string;
     posicao: string;
     numero: number;
+    idade: number;
+    forcaGeral: number;
     valorPasse: number;
     valorFinalizacao: number;
     valorCruzamento: number;

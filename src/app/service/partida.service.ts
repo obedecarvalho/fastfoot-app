@@ -13,6 +13,7 @@ export class PartidaService {
   apiUrlClube = 'http://localhost:8081/partidas/clube/';
   apiUrlSemana = 'http://localhost:8081/partidas/semana/';
   apiUrlJogarPartidas = 'http://localhost:8081/proximaSemana/';
+  apiUrlSemanaAmistosas = 'http://localhost:8081/partidas/amistosas/';
   param = '?nivel=';
 
   constructor(private httpClient: HttpClient) { }
@@ -27,6 +28,10 @@ export class PartidaService {
 
   public getPartidasPorSemana(numSemana: number): Observable<Partida[]> {
     return this.httpClient.get<Partida[]>(this.apiUrlSemana + numSemana);
+  }
+
+  public getPartidasAmistosasPorSemana(numSemana: number): Observable<Partida[]> {
+    return this.httpClient.get<Partida[]>(this.apiUrlSemanaAmistosas + numSemana);
   }
 
   public jogarPartidas(): Observable<Semana> {

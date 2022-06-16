@@ -15,7 +15,7 @@ export class JogadorComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns: string[] = ['nomeJogador', 'posicao', 'numero'];
+  displayedColumns: string[] = ['nomeJogador', 'posicao', 'numero', 'idade', 'forca', 'passe'];
 
   jogadoresDataSource: MatTableDataSource<Jogador>;
 
