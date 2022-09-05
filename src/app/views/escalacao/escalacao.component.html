@@ -1,0 +1,78 @@
+<mat-form-field>
+    <mat-select [(value)]="ligaSelected" (selectionChange)="ligaChangeAction()">
+        <mat-option [value]="liga" *ngFor="let liga of ligasItens">
+            {{liga}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+    <mat-select [(value)]="clubeSelected" (selectionChange)="clubeChangeAction()">
+        <mat-option [value]="c" *ngFor="let c of clubesItens">
+            {{c.nomeClube}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+
+<button mat-raised-button (click)="salvar()">Salvar</button>
+
+<div cdkDropListGroup>
+
+    <div class="escalacao-container">
+        <h2>Suplentes</h2>
+
+        <div
+            id = "_suplente"
+            class="escalacao-list"
+            cdkDropList
+            [cdkDropListData]="escalacaoSuplente"
+            (cdkDropListDropped)="drop($event)">
+            <div class="escalacao-elemento" *ngFor="let s of escalacaoSuplente" cdkDrag>
+                {{s.escalacaoDesc}}
+                {{s.jogador.numero}}
+                {{s.jogador.forcaGeral}}
+                {{s.jogador.posicao}}
+            </div>
+
+        </div>
+    </div>
+
+    <div class="escalacao-container">
+        <h2>Reservas</h2>
+
+        <div
+            id = "_reserva"
+            class="escalacao-list"
+            cdkDropList
+            [cdkDropListData]="escalacaoReserva"
+            (cdkDropListDropped)="drop($event)">
+            <div class="escalacao-elemento" *ngFor="let r of escalacaoReserva" cdkDrag>
+                {{r.escalacaoDesc}}
+                {{r.jogador.numero}}
+                {{r.jogador.forcaGeral}}
+                {{r.jogador.posicao}}
+            </div>
+
+        </div>
+    </div>
+
+    <div class="escalacao-container">
+        <h2>Titulares</h2>
+
+        <div
+            id = "_titular"
+            class="escalacao-list"
+            cdkDropList
+            [cdkDropListData]="escalacaoTitular"
+            (cdkDropListDropped)="drop($event)">
+            <div class="escalacao-elemento" *ngFor="let t of escalacaoTitular" cdkDrag>
+                {{t.escalacaoDesc}}
+                {{t.jogador.numero}}
+                {{t.jogador.forcaGeral}}
+                {{t.jogador.posicao}}
+            </div>
+
+        </div>
+    </div>
+
+</div>

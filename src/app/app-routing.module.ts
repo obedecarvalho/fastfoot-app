@@ -12,6 +12,7 @@ import { PartidasCampeonatoComponent } from './views/partidas-campeonato/partida
 import { PartidasClubeComponent } from './views/partidas-clube/partidas-clube.component';
 import { PartidasSemanaComponent } from './views/partidas-semana/partidas-semana.component';
 import { ProbabilidadesComponent } from './views/probabilidades/probabilidades.component';
+import { EscalacaoComponent } from './views/escalacao/escalacao.component';
 
 const routes: Routes = [
   /*{
@@ -53,6 +54,10 @@ const routes: Routes = [
   {
     path: 'jogadores',
     component: JogadorComponent
+  },
+  {
+    path: 'escalarClube',
+    component: EscalacaoComponent
   },
   {
     path: 'partidasCampeonato',

@@ -26,6 +26,9 @@ import {CdkAccordionModule} from '@angular/cdk/accordion';
 import { PartidasAmistosasComponent } from './views/partidas-amistosas/partidas-amistosas.component';
 import { ClubeTitulosRankingComponent } from './views/clube-titulos-ranking/clube-titulos-ranking.component';
 import { ClubeTituloAnoComponent } from './views/clube-titulo-ano/clube-titulo-ano.component';
+import { EscalacaoComponent } from './views/escalacao/escalacao.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,8 @@ import { ClubeTituloAnoComponent } from './views/clube-titulo-ano/clube-titulo-a
     ProbabilidadesComponent,
     PartidasAmistosasComponent,
     ClubeTitulosRankingComponent,
-    ClubeTituloAnoComponent
+    ClubeTituloAnoComponent,
+    EscalacaoComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +60,9 @@ import { ClubeTituloAnoComponent } from './views/clube-titulo-ano/clube-titulo-a
     MatSelectModule,
     MatTabsModule,
     MatProgressBarModule,
-    CdkAccordionModule
+    CdkAccordionModule,
+    DragDropModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
