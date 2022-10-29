@@ -12,4 +12,6 @@ export class Partida {
 	nivelCampeonato: string;
 	numeroGrupoCampeonato: number;
 	partidaJogada: boolean;
+	golsMandantePenalts: number;
+	golsVisitantePenalts: number;
 }
