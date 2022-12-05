@@ -1,7 +1,7 @@
 <mat-form-field>
     <mat-select [(value)]="ligaSelected" (selectionChange)="ligaChangeAction()">
         <mat-option [value]="liga" *ngFor="let liga of ligasItens">
-            {{liga}}
+            {{liga.nome}}
         </mat-option>
     </mat-select>
 </mat-form-field>
@@ -9,7 +9,7 @@
 <mat-form-field>
     <mat-select [(value)]="clubeSelected" (selectionChange)="clubeChangeAction()">
         <mat-option [value]="c" *ngFor="let c of clubesItens">
-            {{c.nomeClube}}
+            {{c.nome}}
         </mat-option>
     </mat-select>
 </mat-form-field>

@@ -40,7 +40,7 @@ export class PartidasClubeComponent implements OnInit {
   }
 
   public ligaChangeAction(){
-    this.clubeService.getByLiga(this.ligaSelected.id).subscribe(
+    this.clubeService.getByLiga(this.ligaSelected).subscribe(
       data => {
         this.clubesItens = data;
       }

@@ -3,6 +3,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Clube } from 'src/app/model/clube.model';
 import { Jogador } from 'src/app/model/jogador.model';
+import { Liga, ligas } from 'src/app/model/liga.model';
 import { ClubeService } from 'src/app/service/clube.service';
 import { JogadorService } from 'src/app/service/jogador.service';
 
@@ -23,9 +24,10 @@ export class JogadorComponent implements OnInit {
 
   clubeSelected: Clube;
 
-  ligasItens: string[] = ['GENEBE', 'SPAPOR', 'ITAFRA', 'ENGLND'];
+  //ligasItens: string[] = ['GENEBE', 'SPAPOR', 'ITAFRA', 'ENGLND'];
+  ligasItens: Liga[] = ligas;
 
-  ligaSelected: string;
+  ligaSelected: Liga;
 
   constructor(
     private jogadorService: JogadorService,
@@ -36,7 +38,7 @@ export class JogadorComponent implements OnInit {
   }
 
   public ligaChangeAction(){
-    this.clubeService.getClubesPorLiga(this.ligaSelected).subscribe(
+    this.clubeService.getByLiga(this.ligaSelected).subscribe(
       data => {
         this.clubesItens = data;
       }
@@ -44,7 +46,7 @@ export class JogadorComponent implements OnInit {
   }
 
   public clubeChangeAction(){
-    this.jogadorService.getJogadoresPorClube(this.clubeSelected.idClube).subscribe(
+    this.jogadorService.getJogadoresPorClube(this.clubeSelected.id).subscribe(
       data => {
         this.jogadoresDataSource = new MatTableDataSource(data);
         this.jogadoresDataSource.sort = this.sort;

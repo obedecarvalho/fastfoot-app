@@ -16,11 +16,11 @@ export class EscalacaoService {
   constructor(private httpClient: HttpClient) { }
 
   public getEscalacaoClube(clube: Clube): Observable<EscalacaoClube>{
-    return this.httpClient.get<EscalacaoClube>(this.apiUrlEscalacaoClube + clube.idClube);
+    return this.httpClient.get<EscalacaoClube>(this.apiUrlEscalacaoClube + clube.id);
   }
 
   public salvarEscalacaoClube(clube: Clube, escalacaoClube: EscalacaoClube){
     console.log('salvar1');
-    return this.httpClient.post<EscalacaoClube>(this.apiUrlSalvarEscalacaoClube + clube.idClube, escalacaoClube);
+    return this.httpClient.post<EscalacaoClube>(this.apiUrlSalvarEscalacaoClube + clube.id, escalacaoClube);
   }
 }

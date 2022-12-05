@@ -1,6 +1,6 @@
 export class Clube {
-    idClube: number;//Deprecated
-    nomeClube: string;//Deprecated
+    //idClube: number;//Deprecated
+    //nomeClube: string;//Deprecated
     id: number;
     nome: string;
 }

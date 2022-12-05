@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Clube } from 'src/app/model/clube.model';
 import { EscalacaoClube } from 'src/app/model/escalacao-clube.model';
 import { EscalacaoJogador } from 'src/app/model/escalacao-jogador.model';
+import { Liga, ligas } from 'src/app/model/liga.model';
 import { ClubeService } from 'src/app/service/clube.service';
 import { EscalacaoService } from 'src/app/service/escalacao.service';
 
@@ -18,7 +19,7 @@ export class EscalacaoComponent implements OnInit {
 
   clubeSelected: Clube;
 
-  ligasItens: string[] = ['GENEBE', 'SPAPOR', 'ITAFRA', 'ENGLND'];
+  ligasItens: Liga[] = ligas;
 
   escalacaoDes = [
     {escPos: 0, escDesc: 'GOL'},
@@ -43,7 +44,7 @@ export class EscalacaoComponent implements OnInit {
     {escPos: 16, escDesc: 'RES'}
   ];
 
-  ligaSelected: string;
+  ligaSelected: Liga;
 
   //escalacao: EscalacaoClube;
 
@@ -65,7 +66,7 @@ export class EscalacaoComponent implements OnInit {
   }
 
   public ligaChangeAction(){
-    this.clubeService.getClubesPorLiga(this.ligaSelected).subscribe(
+    this.clubeService.getByLiga(this.ligaSelected).subscribe(
       data => {
         this.clubesItens = data;
       }
