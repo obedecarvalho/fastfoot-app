@@ -5,6 +5,7 @@ import { Partida } from 'src/app/model/partida.model';
 import { PartidaService } from 'src/app/service/partida.service';
 import { Clube } from 'src/app/model/clube.model';
 import { ClubeService } from 'src/app/service/clube.service';
+import { Liga, ligas } from 'src/app/model/liga.model';
 
 @Component({
   selector: 'app-partidas-clube',
@@ -19,9 +20,11 @@ export class PartidasClubeComponent implements OnInit {
 
   partidasSource: MatTableDataSource<Partida>;
 
-  ligasItens: string[] = ['GENEBE', 'SPAPOR', 'ITAFRA', 'ENGLND'];
+  //ligasItens: string[] = ['GENEBE', 'SPAPOR', 'ITAFRA', 'ENGLND'];
+  ligasItens = ligas;
 
-  ligaSelected: string;
+  //ligaSelected: string;
+  ligaSelected: Liga;
 
   clubesItens: Clube[];
 
@@ -37,7 +40,7 @@ export class PartidasClubeComponent implements OnInit {
   }
 
   public ligaChangeAction(){
-    this.clubeService.getClubesPorLiga(this.ligaSelected).subscribe(
+    this.clubeService.getByLiga(this.ligaSelected.id).subscribe(
       data => {
         this.clubesItens = data;
       }
@@ -45,7 +48,7 @@ export class PartidasClubeComponent implements OnInit {
   }
 
   public clubeChangeAction(){
-    this.partidaService.getPartidasPorClube(this.clubeSelected.idClube).subscribe(
+    this.partidaService.getPartidasPorClube(this.clubeSelected.id).subscribe(
       data => {
         this.partidasSource = new MatTableDataSource(data);
         this.partidasSource.sort = this.sort;
