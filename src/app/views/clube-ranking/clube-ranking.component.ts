@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ClubeRanking } from 'src/app/model/clube-ranking.model';
+import { Liga, ligas } from 'src/app/model/liga.model';
 import { Temporada } from 'src/app/model/temporada.model';
 import { ClubeRankingService } from 'src/app/service/clube-ranking.service';
 import { TemporadaService } from 'src/app/service/temporada.service';
@@ -17,7 +18,7 @@ export class ClubeRankingComponent implements OnInit {
 
   temporadaItens: Temporada[];
 
-  ligasItens: string[] = ['GENEBE', 'SPAPOR', 'ITAFRA', 'ENGLND'];
+  ligasItens: Liga[] = ligas;
 
   displayedColumns: string[] = ['clubeNome', 'posicaoGeral', 'classificacaoContinental', 'classificacaoNacional', 'classificacaoCopaNacional'];
 
@@ -25,7 +26,7 @@ export class ClubeRankingComponent implements OnInit {
 
   clubeRankingDataSource: MatTableDataSource<ClubeRanking>;
 
-  ligaSelected: string;
+  ligaSelected: Liga;
 
   temporadaSelected: Temporada;
 
@@ -64,7 +65,7 @@ export class ClubeRankingComponent implements OnInit {
   //TODO: validar dados
   public btSearchAction(){
     console.log('ligaChangeAction#');
-    this.clubeRankingService.getClubesRankingLigaAno(this.ligaSelected, this.anoSelected).subscribe(
+    this.clubeRankingService.getByLigaAndAno(this.ligaSelected, this.anoSelected).subscribe(
       data => {
         this.clubeRankingDataSource = new MatTableDataSource(data);
         this.clubeRankingDataSource.sort = this.sort;
