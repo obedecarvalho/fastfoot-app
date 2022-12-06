@@ -44,7 +44,7 @@ export class ClassificacaoNacionalComponent implements OnInit {
   }
 
   public campeonatoChangeAction(){
-    this.classificacaoService.getClassificacaoPorCampeonato(this.campeonatoSelected.idCampeonato, 'NACIONAL').subscribe(
+    this.classificacaoService.getByIdCampeonato(this.campeonatoSelected.idCampeonato).subscribe(
       data => {
         this.classificacoesSource = new MatTableDataSource<Classificacao>(data);
         this.classificacoesSource.sort = this.sort;
