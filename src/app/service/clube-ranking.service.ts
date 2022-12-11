@@ -5,7 +5,7 @@ import { ClubeRanking } from '../model/clube-ranking.model';
 import { ClubeTituloRanking } from '../model/clube-titulo-ranking.model';
 import { ClubeTituloAno } from '../model/clube-titulo-ano.model';
 import { Liga } from '../model/liga.model';
-import { AppSettings } from '../model/appSettings.model';
+import { AppSettings } from '../model/app-settings.model';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +21,7 @@ export class ClubeRankingService {
 
   apiUrlClubeTituloAno = 'http://localhost:8081/clubes/campeoes/';
 
-  apiUrlByLigaAndAno = AppSettings.API_ENDPOINT + 'clubeRankings';
+  apiUrl = AppSettings.API_ENDPOINT + 'clubeRankings';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -31,11 +31,11 @@ export class ClubeRankingService {
 
   public getByLigaAndAno(liga: Liga, ano: number): Observable<ClubeRanking[]>{
     if (ano == null){
-      console.log(this.apiUrlByLigaAndAno + '?liga=' + liga.id);
-      return this.httpClient.get<ClubeRanking[]>(this.apiUrlByLigaAndAno + '?liga=' + liga.id);
+      //console.log(this.apiUrl + '?liga=' + liga.id);
+      return this.httpClient.get<ClubeRanking[]>(this.apiUrl + '?liga=' + liga.id);
     } else {
-      console.log(this.apiUrlByLigaAndAno + '?liga=' + liga.id + '&ano=' + ano);
-      return this.httpClient.get<ClubeRanking[]>(this.apiUrlByLigaAndAno + '?liga=' + liga.id + '&ano=' + ano);
+      //console.log(this.apiUrl + '?liga=' + liga.id + '&ano=' + ano);
+      return this.httpClient.get<ClubeRanking[]>(this.apiUrl + '?liga=' + liga.id + '&ano=' + ano);
     }
   }
 

@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AppSettings } from '../model/appSettings.model';
+import { AppSettings } from '../model/app-settings.model';
 import { ClassificacaoProbabilidade } from '../model/classificacao-probabilidade.model';
 import { Classificacao } from '../model/classificacao.model';
 
@@ -10,12 +10,12 @@ import { Classificacao } from '../model/classificacao.model';
 })
 export class ClassificacaoService {
 
-  apiUrl = 'http://localhost:8081/classificacao/campeonato/';
-  param = '?nivel=';
+  /*apiUrl = 'http://localhost:8081/classificacao/campeonato/';
+  param = '?nivel=';*/
 
   apiUrlProbabilidade = 'http://localhost:8081/probabilidade/campeonato/';
 
-  apiUrlGetByIdCampeonato = AppSettings.API_ENDPOINT + 'classificacoes';
+  apiUrl = AppSettings.API_ENDPOINT + 'classificacoes';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -26,7 +26,7 @@ export class ClassificacaoService {
   constructor(private httpClient: HttpClient) { }
 
   public getByIdCampeonato(idCampeonato: number): Observable<Classificacao[]> {
-    return this.httpClient.get<Classificacao[]>(this.apiUrlGetByIdCampeonato + '?idCampeonato=' + idCampeonato);
+    return this.httpClient.get<Classificacao[]>(this.apiUrl + '?idCampeonato=' + idCampeonato);
   }
 
   //Deprecated
