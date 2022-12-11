@@ -20,10 +20,8 @@ export class PartidasClubeComponent implements OnInit {
 
   partidasSource: MatTableDataSource<Partida>;
 
-  //ligasItens: string[] = ['GENEBE', 'SPAPOR', 'ITAFRA', 'ENGLND'];
   ligasItens = ligas;
 
-  //ligaSelected: string;
   ligaSelected: Liga;
 
   clubesItens: Clube[];

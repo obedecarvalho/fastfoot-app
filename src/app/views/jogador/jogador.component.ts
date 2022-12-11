@@ -24,7 +24,6 @@ export class JogadorComponent implements OnInit {
 
   clubeSelected: Clube;
 
-  //ligasItens: string[] = ['GENEBE', 'SPAPOR', 'ITAFRA', 'ENGLND'];
   ligasItens: Liga[] = ligas;
 
   ligaSelected: Liga;
@@ -46,7 +45,7 @@ export class JogadorComponent implements OnInit {
   }
 
   public clubeChangeAction(){
-    this.jogadorService.getJogadoresPorClube(this.clubeSelected.id).subscribe(
+    this.jogadorService.getByClube(this.clubeSelected).subscribe(
       data => {
         this.jogadoresDataSource = new MatTableDataSource(data);
         this.jogadoresDataSource.sort = this.sort;

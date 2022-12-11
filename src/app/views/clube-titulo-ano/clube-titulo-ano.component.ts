@@ -18,15 +18,11 @@ export class ClubeTituloAnoComponent implements OnInit {
 
   //temporadaItens: Temporada[];
 
-  //ligasItens: string[] = ['GENEBE', 'SPAPOR', 'ITAFRA', 'ENGLND'];
-
   displayedColumns: string[] = ['clubeNome', 'nivelCampeonato', 'ano'];
 
   anoItens: number[];
 
   clubeRankingDataSource: MatTableDataSource<ClubeTituloAno>;
-
-  //ligaSelected: string;
 
   //temporadaSelected: Temporada;
 
@@ -65,6 +61,7 @@ export class ClubeTituloAnoComponent implements OnInit {
   //TODO: validar dados
   public btSearchAction(){
     console.log('ligaChangeAction#');
+    this.clearChangeAction();
     this.clubeRankingService.getClubeTituloAno(this.anoSelected).subscribe(
       data => {
         this.clubeRankingDataSource = new MatTableDataSource(data);

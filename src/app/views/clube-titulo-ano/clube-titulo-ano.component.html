@@ -1,5 +1,5 @@
 <mat-form-field>
-    <mat-select [(value)]="anoSelected" (selectionChange)="clearChangeAction()">
+    <mat-select [(value)]="anoSelected" (selectionChange)="btSearchAction()">
         <mat-option [value]="a + 1" *ngFor="let a of anoItens">
             {{a + 1}}
         </mat-option>
@@ -14,7 +14,7 @@
     </mat-select>
 </mat-form-field>-->
 
-<button mat-raised-button (click)="btSearchAction()">Buscar</button>
+<!--<button mat-raised-button (click)="btSearchAction()">Buscar</button>-->
 
 <table mat-table [dataSource]="clubeRankingDataSource" matSort>
     <ng-container matColumnDef="clubeNome">

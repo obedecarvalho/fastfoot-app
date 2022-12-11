@@ -65,6 +65,7 @@ export class ClubeTitulosRankingComponent implements OnInit {
   //TODO: validar dados
   public btSearchAction(){
     console.log('ligaChangeAction#');
+    this.clearChangeAction();
     this.clubeRankingService.getClubesTitulosRankingLiga(this.ligaSelected).subscribe(
       data => {
         this.clubeRankingDataSource = new MatTableDataSource(data);
