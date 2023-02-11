@@ -1,0 +1,41 @@
+<mat-form-field>
+    <mat-select [(value)]="ligaSelected" (selectionChange)="ligaChangeAction()">
+        <mat-option [value]="liga" *ngFor="let liga of ligasItens">
+            {{liga.nome}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+    <mat-select [(value)]="clubeSelected" (selectionChange)="clubeChangeAction()">
+        <mat-option [value]="c" *ngFor="let c of clubesItens">
+            {{c.nome}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+
+<table mat-table matSort [dataSource]="estatisticas">
+    <ng-container matColumnDef="nomeJogador">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdMed">Nome</th>
+        <td mat-cell *matCellDef="let j">{{j.jogador.nome}}</td>
+    </ng-container>
+    <ng-container matColumnDef="numeroJogos">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">Jogos</th>
+        <td mat-cell *matCellDef="let j">{{j.numeroJogos}}</td>
+    </ng-container>
+    <ng-container matColumnDef="golsMarcados">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">Gols</th>
+        <td mat-cell *matCellDef="let j">{{j.golsMarcados}}</td>
+    </ng-container>
+    <ng-container matColumnDef="assistencias">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">Assistencias</th>
+        <td mat-cell *matCellDef="let j">{{j.assistencias}}</td>
+    </ng-container>
+    <ng-container matColumnDef="golsSofridos">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">Gols Sofridos</th>
+        <td mat-cell *matCellDef="let j">{{j.golsSofridos}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

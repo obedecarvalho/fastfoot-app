@@ -28,8 +28,9 @@
         <mat-menu #jogador="matMenu">
             <button mat-menu-item routerLink="/jogadores" routerLinkActive="selected">Por Clube</button>
             <button mat-menu-item routerLink="/escalarClube" routerLinkActive="selected">Escalar Clube</button>
-            <button mat-menu-item routerLink="/escalarClube" routerLinkActive="selected">Estatísticas Jogador</button>
-            <button mat-menu-item routerLink="/escalarClube" routerLinkActive="selected">Transferências Jogador</button>
+            <button mat-menu-item routerLink="/jogadorEstatistica" routerLinkActive="selected">Estatísticas Jogador</button>
+            <button mat-menu-item routerLink="/transferenciaJogador" routerLinkActive="selected">Transferências Jogador</button>
+            <button mat-menu-item routerLink="/jogadorArtilheiro" routerLinkActive="selected">Artilheiros</button>
         </mat-menu>
 
         <button mat-raised-button [matMenuTriggerFor]="ranking">Ranking</button>
@@ -37,6 +38,7 @@
             <button mat-menu-item routerLink="/clubeRanking" routerLinkActive="selected">Por Clube</button>
             <button mat-menu-item routerLink="/clubeTituloRanking" routerLinkActive="selected">Titulos</button>
             <button mat-menu-item routerLink="/clubeTituloAno" routerLinkActive="selected">Titulos Por Ano</button>
+            <button mat-menu-item routerLink="/clubeResumoTemporada" routerLinkActive="selected">Clube Resumo Temporada</button>
         </mat-menu>
 
     </mat-toolbar-row>

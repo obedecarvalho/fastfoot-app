@@ -29,6 +29,10 @@ import { ClubeTituloAnoComponent } from './views/clube-titulo-ano/clube-titulo-a
 import { EscalacaoComponent } from './views/escalacao/escalacao.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { TransfereciaJogadorComponent } from './views/transferecia-jogador/transferecia-jogador.component';
+import { JogadorArtilheiroComponent } from './views/jogador-artilheiro/jogador-artilheiro.component';
+import { JogadorEstatisticaComponent } from './views/jogador-estatistica/jogador-estatistica.component';
+import { ClubeResumoTemporadaComponent } from './views/clube-resumo-temporada/clube-resumo-temporada.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +49,11 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     PartidasAmistosasComponent,
     ClubeTitulosRankingComponent,
     ClubeTituloAnoComponent,
-    EscalacaoComponent
+    EscalacaoComponent,
+    TransfereciaJogadorComponent,
+    JogadorArtilheiroComponent,
+    JogadorEstatisticaComponent,
+    ClubeResumoTemporadaComponent
   ],
   imports: [
     BrowserModule,

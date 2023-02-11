@@ -13,6 +13,10 @@ import { PartidasClubeComponent } from './views/partidas-clube/partidas-clube.co
 import { PartidasSemanaComponent } from './views/partidas-semana/partidas-semana.component';
 import { ProbabilidadesComponent } from './views/probabilidades/probabilidades.component';
 import { EscalacaoComponent } from './views/escalacao/escalacao.component';
+import { JogadorArtilheiroComponent } from './views/jogador-artilheiro/jogador-artilheiro.component';
+import { JogadorEstatisticaComponent } from './views/jogador-estatistica/jogador-estatistica.component';
+import { TransfereciaJogadorComponent } from './views/transferecia-jogador/transferecia-jogador.component';
+import { ClubeResumoTemporadaComponent } from './views/clube-resumo-temporada/clube-resumo-temporada.component';
 
 const routes: Routes = [
   /*{
@@ -66,6 +70,22 @@ const routes: Routes = [
   {
     path: 'probabilidades/nacional',
     component: ProbabilidadesComponent
+  },
+  {
+    path: 'jogadorArtilheiro',
+    component: JogadorArtilheiroComponent
+  },
+  {
+    path: 'jogadorEstatistica',
+    component: JogadorEstatisticaComponent
+  },
+  {
+    path: 'transferenciaJogador',
+    component: TransfereciaJogadorComponent
+  },
+  {
+    path: 'clubeResumoTemporada',
+    component: ClubeResumoTemporadaComponent
   }
 ];
 
