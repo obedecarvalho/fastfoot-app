@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Campeonato } from 'src/app/model/campeonato.model';
 import { ClassificacaoProbabilidade } from 'src/app/model/classificacao-probabilidade.model';
 import { ClassificacaoService } from 'src/app/service/classificacao.service';
+import { ClubeProbabilidadeService } from 'src/app/service/clube-probabilidade.service';
 import { TemporadaService } from 'src/app/service/temporada.service';
 
 @Component({
@@ -27,6 +28,7 @@ export class ProbabilidadesComponent implements OnInit {
   constructor(
     private classificacaoService: ClassificacaoService,
     private temporadaService: TemporadaService,
+    private clubeProbabilidadeService: ClubeProbabilidadeService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
@@ -44,12 +46,18 @@ export class ProbabilidadesComponent implements OnInit {
   }
 
   public campeonatoChangeAction(){
-    this.classificacaoService.getClassificacaoPorCampeonatoComProbabilidade(this.campeonatoSelected.idCampeonato).subscribe(
+    /*this.classificacaoService.getClassificacaoPorCampeonatoComProbabilidade(this.campeonatoSelected.idCampeonato).subscribe(
       data => {
         this.classificacoesSource = new MatTableDataSource<ClassificacaoProbabilidade>(data);
         this.classificacoesSource.sort = this.sort;
       }
-    )
+    )*/
+    this.clubeProbabilidadeService.getByIdCampeonatoAndSemanaAtual(this.campeonatoSelected.idCampeonato).subscribe(
+      data => {
+        this.classificacoesSource = new MatTableDataSource<ClassificacaoProbabilidade>(data);
+        this.classificacoesSource.sort = this.sort;
+      }
+    );
   }
 
 }

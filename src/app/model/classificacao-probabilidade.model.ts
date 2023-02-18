@@ -1,4 +1,5 @@
 import { Classificacao } from "./classificacao.model";
+import { Clube } from "./clube.model";
 
 export class ClassificacaoProbabilidade {
     probabilidadeAcesso: string;
@@ -10,6 +11,7 @@ export class ClassificacaoProbabilidade {
 	probabilidadeClassificacaoCII: string;
 	probabilidadeClassificacaoCIII: string;
 	probabilidadeClassificacaoCNI: string;
-	nomeClube: string;
+	//nomeClube: string;
+	clube: Clube;
     classificacao: Classificacao;
 }
