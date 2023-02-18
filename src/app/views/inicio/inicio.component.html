@@ -27,7 +27,7 @@
         <button mat-raised-button [matMenuTriggerFor]="jogador">Jogadores</button>
         <mat-menu #jogador="matMenu">
             <button mat-menu-item routerLink="/jogadores" routerLinkActive="selected">Por Clube</button>
-            <button mat-menu-item routerLink="/escalarClube" routerLinkActive="selected">Escalar Clube</button>
+            <!--<button mat-menu-item routerLink="/escalarClube" routerLinkActive="selected">Escalar Clube</button>-->
             <button mat-menu-item routerLink="/jogadorEstatistica" routerLinkActive="selected">Estatísticas Jogador</button>
             <button mat-menu-item routerLink="/transferenciaJogador" routerLinkActive="selected">Transferências Jogador</button>
             <button mat-menu-item routerLink="/jogadorArtilheiro" routerLinkActive="selected">Artilheiros</button>
@@ -35,9 +35,9 @@
 
         <button mat-raised-button [matMenuTriggerFor]="ranking">Ranking</button>
         <mat-menu #ranking="matMenu">
-            <button mat-menu-item routerLink="/clubeRanking" routerLinkActive="selected">Por Clube</button>
-            <button mat-menu-item routerLink="/clubeTituloRanking" routerLinkActive="selected">Titulos</button>
-            <button mat-menu-item routerLink="/clubeTituloAno" routerLinkActive="selected">Titulos Por Ano</button>
+            <button mat-menu-item routerLink="/clubeRanking" routerLinkActive="selected">Ranking Clubes</button>
+            <button mat-menu-item routerLink="/clubeTituloRanking" routerLinkActive="selected">Titulos Por Clube</button>
+            <button mat-menu-item routerLink="/clubeTituloAno" routerLinkActive="selected">Campeões Por Ano</button>
             <button mat-menu-item routerLink="/clubeResumoTemporada" routerLinkActive="selected">Clube Resumo Temporada</button>
         </mat-menu>
 
@@ -45,6 +45,7 @@
     <mat-toolbar-row>
         <button mat-raised-button (click)="novaTemporada()" [disabled]="progressBarEnable">Nova Temporada</button>
         <button mat-raised-button (click)="jogarPartidas()" [disabled]="progressBarEnable">Jogar Partidas</button>
+        <button mat-raised-button routerLink="/escalarClube" [disabled]="progressBarEnable">Escalar Clube</button>
     </mat-toolbar-row>
 </mat-toolbar>
 <mat-progress-bar mode="indeterminate" *ngIf="progressBarEnable" ></mat-progress-bar>

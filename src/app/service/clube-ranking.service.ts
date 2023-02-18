@@ -39,6 +39,10 @@ export class ClubeRankingService {
     }
   }
 
+  public getByIdClube(idClube: number){
+    return this.httpClient.get<ClubeRanking[]>(this.apiUrl + '?idClube=' + idClube);
+  }
+
   /*public getClubesRankingLiga(liga: string): Observable<ClubeRanking[]>{//Deprecated
     //console.log(this.apiUrlClubesRankings + liga);
     return this.httpClient.get<ClubeRanking[]>(this.apiUrlClubesRankings + liga);

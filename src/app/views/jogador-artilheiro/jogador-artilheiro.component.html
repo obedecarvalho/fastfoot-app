@@ -1,1 +1,18 @@
-<p>jogador-artilheiro works!</p>
+
+<table mat-table matSort [dataSource]="estatisticas">
+    <ng-container matColumnDef="nomeJogador">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdMed">Nome</th>
+        <td mat-cell *matCellDef="let j">{{j.jogador.nome}}</td>
+    </ng-container>
+    <ng-container matColumnDef="nomeClube">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdMed">Clube</th>
+        <td mat-cell *matCellDef="let j">{{j.jogador.clube.nome}}</td>
+    </ng-container>
+    <ng-container matColumnDef="qtdeGols">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">Gols</th>
+        <td mat-cell *matCellDef="let j">{{j.qtdeGols}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

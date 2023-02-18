@@ -2,9 +2,11 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ClubeRanking } from 'src/app/model/clube-ranking.model';
+import { Clube } from 'src/app/model/clube.model';
 import { Liga, ligas } from 'src/app/model/liga.model';
 import { Temporada } from 'src/app/model/temporada.model';
 import { ClubeRankingService } from 'src/app/service/clube-ranking.service';
+import { ClubeService } from 'src/app/service/clube.service';
 import { TemporadaService } from 'src/app/service/temporada.service';
 
 @Component({
@@ -20,7 +22,7 @@ export class ClubeRankingComponent implements OnInit {
 
   ligasItens: Liga[] = ligas;
 
-  displayedColumns: string[] = ['clubeNome', 'posicaoGeral', 'classificacaoContinental', 'classificacaoNacional', 'classificacaoCopaNacional'];
+  displayedColumns: string[];
 
   anoItens: number[];
 
@@ -32,9 +34,14 @@ export class ClubeRankingComponent implements OnInit {
 
   anoSelected: number;
 
+  clubeSelected: Clube;
+
+  clubesItens: Clube[];
+
   constructor(
     private clubeRankingService: ClubeRankingService,
-    private temporadaService: TemporadaService
+    private temporadaService: TemporadaService,
+    private clubeService: ClubeService
   ) { }
 
   ngOnInit(): void {
@@ -72,6 +79,7 @@ export class ClubeRankingComponent implements OnInit {
         //console.log(data);
       }
     )
+    this.displayedColumns = ['clubeNome', 'posicaoGeral', 'classificacaoContinental', 'classificacaoNacional', 'classificacaoCopaNacional'];
     /*this.clubeRankingService.getClubesRankingLiga(this.ligaSelected).subscribe(
       data => {
         this.clubeRankingDataSource = new MatTableDataSource(data);
@@ -79,5 +87,27 @@ export class ClubeRankingComponent implements OnInit {
         console.log(data);
       }
     )*/
+  }
+
+  //TODO: validar dados
+  public clubeChangeAction(){
+    console.log('ligaChangeAction#2');
+    this.clubeRankingService.getByIdClube(this.clubeSelected.id).subscribe(
+      data => {
+        this.clubeRankingDataSource = new MatTableDataSource(data);
+        this.clubeRankingDataSource.sort = this.sort;
+        //console.log(data);
+      }
+    )
+    this.displayedColumns = ['clubeNome', 'ano', 'posicaoGeral', 'classificacaoContinental', 'classificacaoNacional', 'classificacaoCopaNacional'];
+  }
+
+  public ligaChangeAction(){
+    this.clearChangeAction();
+    this.clubeService.getByLiga(this.ligaSelected).subscribe(
+      data => {
+        this.clubesItens = data;
+      }
+    )
   }
 }

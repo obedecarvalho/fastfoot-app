@@ -18,7 +18,7 @@ export class ClubeResumoTemporadaComponent implements OnInit {
 
   estatisticas: MatTableDataSource<ClubeResumoTemporada>;
 
-  displayedColumns: string[] = ['nomeClube', 'nivelCampeonato', 'posicaoFinal', 'jogos', 'vitorias', 'empates', 'golsPro', 'golsContra'];
+  displayedColumns: string[] = ['nomeClube', 'ano', 'nivelCampeonato', 'posicaoFinal', 'jogos', 'vitorias', 'empates', 'golsPro', 'golsContra'];
 
   clubesItens: Clube[];
 

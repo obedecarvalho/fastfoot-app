@@ -20,6 +20,11 @@
         <td mat-cell *matCellDef="let j">{{j.clube.nome}}</td>
     </ng-container>
 
+    <ng-container matColumnDef="ano">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">Ano</th>
+        <td mat-cell *matCellDef="let j">{{j.temporada.ano}}</td>
+    </ng-container>
+
     <ng-container matColumnDef="nivelCampeonato">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdMed">Nível</th>
         <td mat-cell *matCellDef="let j">{{j.nivelCampeonato}}</td>
