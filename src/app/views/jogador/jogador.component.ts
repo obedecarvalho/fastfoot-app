@@ -16,7 +16,7 @@ export class JogadorComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns: string[] = ['nomeJogador', 'posicao', 'numero', 'idade', 'forca', 'passe'];
+  displayedColumns: string[] = ['nomeJogador', 'posicao', 'numero', 'idade', 'forca', 'valorTransferencia'];
 
   jogadoresDataSource: MatTableDataSource<Jogador>;
 
@@ -37,6 +37,7 @@ export class JogadorComponent implements OnInit {
   }
 
   public ligaChangeAction(){
+    this.clear();
     this.clubeService.getByLiga(this.ligaSelected).subscribe(
       data => {
         this.clubesItens = data;
@@ -45,6 +46,7 @@ export class JogadorComponent implements OnInit {
   }
 
   public clubeChangeAction(){
+    this.clear();
     this.jogadorService.getByClube(this.clubeSelected).subscribe(
       data => {
         this.jogadoresDataSource = new MatTableDataSource(data);
@@ -52,5 +54,9 @@ export class JogadorComponent implements OnInit {
         console.log(data);
       }
     )
+  }
+
+  public clear(){
+    this.jogadoresDataSource = null;
   }
 }
