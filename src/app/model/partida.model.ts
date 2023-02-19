@@ -1,17 +1,25 @@
+import { Clube } from "./clube.model";
+import { Rodada } from "./rodada.model";
+
 export class Partida {
+	clubeMandante: Clube;
+	clubeVisitante: Clube;
+	golsMandante: number;
+	golsVisitante: number;
+	rodada: Rodada;
+	partidaJogada: boolean;
+	nivelCampeonato: string;
+
     numeroRodada: number;
 	numeroSemana: number;
 	anoTemporada: number;
 	numeroSemanaAtualTemporada: number;
 	temporadaAtual: boolean;
 	nomeClubeMandante: string;
-	nomeClubeVisitante: string;
-	golsMandante: number;
-	golsVisitante: number;
-	nomeCampeonato: string;
-	nivelCampeonato: string;
-	numeroGrupoCampeonato: number;
-	partidaJogada: boolean;
+	nomeClubeVisitante: string;	
+	nomeCampeonato: string;	
+	numeroGrupoCampeonato: number;	
+
 	golsMandantePenalts: number;
 	golsVisitantePenalts: number;
 }

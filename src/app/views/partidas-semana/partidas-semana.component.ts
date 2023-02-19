@@ -39,7 +39,7 @@ export class PartidasSemanaComponent implements OnInit {
   }
 
   public semanaChangeAction(){
-    this.partidaService.getPartidasPorSemana(this.semanaSelected).subscribe(
+    this.partidaService.getByNumeroSemana(this.semanaSelected).subscribe(
       data => {
         this.partidasSource = new MatTableDataSource(data);
         this.partidasSource.sort = this.sort;

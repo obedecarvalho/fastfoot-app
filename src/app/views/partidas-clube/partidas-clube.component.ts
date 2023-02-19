@@ -35,7 +35,7 @@ export class PartidasClubeComponent implements OnInit {
 
   ngOnInit(): void {
 
-  }
+  }//https://stackoverflow.com/questions/48891174/angular-material-2-datatable-sorting-with-nested-objects
 
   public ligaChangeAction(){
     this.clubeService.getByLiga(this.ligaSelected).subscribe(
@@ -46,7 +46,7 @@ export class PartidasClubeComponent implements OnInit {
   }
 
   public clubeChangeAction(){
-    this.partidaService.getPartidasPorClube(this.clubeSelected.id).subscribe(
+    this.partidaService.getByIdClube(this.clubeSelected.id).subscribe(
       data => {
         this.partidasSource = new MatTableDataSource(data);
         this.partidasSource.sort = this.sort;

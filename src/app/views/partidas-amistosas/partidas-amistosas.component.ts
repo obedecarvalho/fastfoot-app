@@ -40,7 +40,7 @@ export class PartidasAmistosasComponent implements OnInit {
 
   public semanaChangeAction(){
     this.partidasSource = null;
-    this.partidaService.getPartidasAmistosasPorSemana(this.semanaSelected).subscribe(
+    this.partidaService.getByNumeroSemana(this.semanaSelected).subscribe(
       data => {
         this.partidasSource = new MatTableDataSource(data);
         this.partidasSource.sort = this.sort;

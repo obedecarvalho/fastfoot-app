@@ -45,7 +45,7 @@ export class PartidasCampeonatoComponent implements OnInit {
   }
 
   public campeonatoSelectChangeAction(){
-    this.partidaService.getPartidasPorCampeonato(this.campeonatoSelected.idCampeonato, this.nivelLigaSelected).subscribe(
+    this.partidaService.getByIdCampeonato(this.campeonatoSelected.idCampeonato).subscribe(
       data => {
         this.partidasSource = new MatTableDataSource(data);
         this.partidasSource.sort = this.sort;

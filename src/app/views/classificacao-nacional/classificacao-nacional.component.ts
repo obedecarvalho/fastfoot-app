@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Campeonato } from 'src/app/model/campeonato.model';
 import { Classificacao } from 'src/app/model/classificacao.model';
+import { CampeonatoService } from 'src/app/service/campeonato.service';
 import { ClassificacaoService } from 'src/app/service/classificacao.service';
 import { TemporadaService } from 'src/app/service/temporada.service';
 
@@ -27,6 +28,7 @@ export class ClassificacaoNacionalComponent implements OnInit {
   constructor(
     private classificacaoService: ClassificacaoService,
     private temporadaService: TemporadaService,
+    private campeonatoService: CampeonatoService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
@@ -36,7 +38,12 @@ export class ClassificacaoNacionalComponent implements OnInit {
   }
 
   public getCampeonatos(){
-    this.temporadaService.getCampeonatosTemporadaAtual('NACIONAL').subscribe(
+    /*this.temporadaService.getCampeonatosTemporadaAtual('NACIONAL').subscribe(
+      data => {
+        this.campeonatosItens = data;
+      }
+    );*/
+    this.campeonatoService.getNacionalByTemporadaAtual().subscribe(
       data => {
         this.campeonatosItens = data;
       }
@@ -44,7 +51,7 @@ export class ClassificacaoNacionalComponent implements OnInit {
   }
 
   public campeonatoChangeAction(){
-    this.classificacaoService.getByIdCampeonato(this.campeonatoSelected.idCampeonato).subscribe(
+    this.classificacaoService.getByIdCampeonato(this.campeonatoSelected.id).subscribe(
       data => {
         this.classificacoesSource = new MatTableDataSource<Classificacao>(data);
         this.classificacoesSource.sort = this.sort;
