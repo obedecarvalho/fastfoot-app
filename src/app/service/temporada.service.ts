@@ -10,8 +10,8 @@ import { Campeonato } from 'src/app/model/campeonato.model';
 export class TemporadaService {
 
   apiUrlNovaTemporada = 'http://localhost:8081/novaTemporada';
-  apiUrlCampeonatosTemporadaAtual = 'http://localhost:8081/campeonatosTemporadaAtual/';
-  apiUrlTemporadas = 'http://localhost:8081/temporadas/';
+  //apiUrlCampeonatosTemporadaAtual = 'http://localhost:8081/campeonatosTemporadaAtual/';
+  //apiUrlTemporadas = 'http://localhost:8081/temporadas/';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -19,11 +19,11 @@ export class TemporadaService {
     return this.httpClient.get<Temporada>(this.apiUrlNovaTemporada);
   }
 
-  public getCampeonatosTemporadaAtual(nivelLiga: string) : Observable<Campeonato[]> {
+  /*public getCampeonatosTemporadaAtual(nivelLiga: string) : Observable<Campeonato[]> {
     return this.httpClient.get<Campeonato[]>(this.apiUrlCampeonatosTemporadaAtual + '?nivel=' + nivelLiga);
-  }
+  }*/
 
-  public getTemporadas() : Observable<Temporada[]> {
+  /*public getTemporadas() : Observable<Temporada[]> {
     return this.httpClient.get<Temporada[]>(this.apiUrlTemporadas);
-  }
+  }*/
 }

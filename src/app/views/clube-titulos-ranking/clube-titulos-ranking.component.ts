@@ -16,7 +16,7 @@ export class ClubeTitulosRankingComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
 
-  temporadaItens: Temporada[];
+  //temporadaItens: Temporada[];
 
   ligasItens: string[] = ['GENEBE', 'SPAPOR', 'ITAFRA', 'ENGLND'];
 
@@ -28,7 +28,7 @@ export class ClubeTitulosRankingComponent implements OnInit {
 
   ligaSelected: string;
 
-  temporadaSelected: Temporada;
+  //temporadaSelected: Temporada;
 
   //anoSelected: number;
 
@@ -41,13 +41,13 @@ export class ClubeTitulosRankingComponent implements OnInit {
     //this.getAnoClubeRankingItens();
   }
 
-  public getTemporadas(){
+  /*public getTemporadas(){
     this.temporadaService.getTemporadas().subscribe(
       data => {
         this.temporadaItens = data;
       }
     )
-  }
+  }*/
 
   /*public getAnoClubeRankingItens(){
     console.log("getAnoClubeRankingItens#");

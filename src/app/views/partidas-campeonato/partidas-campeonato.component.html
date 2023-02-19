@@ -1,16 +1,16 @@
 
-<mat-form-field>
+<!--<mat-form-field>
     <mat-select [(value)]="nivelLigaSelected" (selectionChange)="nivelLigaChangeAction()">
         <mat-option [value]="nivel" *ngFor="let nivel of nivelLigaItens">
             {{nivel}}
         </mat-option>
     </mat-select>
-</mat-form-field>
+</mat-form-field>-->
 
 <mat-form-field>
     <mat-select [(value)]="campeonatoSelected" (selectionChange)="campeonatoSelectChangeAction()">
         <mat-option [value]="campeonato" *ngFor="let campeonato of campeonatosItens">
-            {{campeonato.nomeCampeonato}}
+            {{campeonato.liga}} - {{campeonato.nivelCampeonato}}
         </mat-option>
     </mat-select>
 </mat-form-field>
