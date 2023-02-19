@@ -6,7 +6,6 @@ import { Campeonato } from 'src/app/model/campeonato.model';
 import { Classificacao } from 'src/app/model/classificacao.model';
 import { CampeonatoService } from 'src/app/service/campeonato.service';
 import { ClassificacaoService } from 'src/app/service/classificacao.service';
-import { TemporadaService } from 'src/app/service/temporada.service';
 
 @Component({
   selector: 'app-classificacao-continental',
@@ -29,7 +28,6 @@ export class ClassificacaoContinentalComponent implements OnInit {
 
   constructor(
     private classificacaoService: ClassificacaoService,
-    private temporadaService: TemporadaService,
     private campeonatoService: CampeonatoService,
     private route: ActivatedRoute,
     private router: Router
@@ -40,11 +38,6 @@ export class ClassificacaoContinentalComponent implements OnInit {
   }
 
   public getCampeonatos(){
-    /*this.temporadaService.getCampeonatosTemporadaAtual('CONTINENTAL').subscribe(
-      data => {
-        this.campeonatosItens = data;
-      }
-    );*/
     this.campeonatoService.getContinentalByTemporadaAtual().subscribe(
       data => {
         this.campeonatosItens = data;

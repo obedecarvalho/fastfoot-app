@@ -5,7 +5,6 @@ import { Campeonato } from 'src/app/model/campeonato.model';
 import { Partida } from 'src/app/model/partida.model';
 import { CampeonatoService } from 'src/app/service/campeonato.service';
 import { PartidaService } from 'src/app/service/partida.service';
-import { TemporadaService } from 'src/app/service/temporada.service';
 
 @Component({
   selector: 'app-partidas-campeonato',
@@ -30,7 +29,6 @@ export class PartidasCampeonatoComponent implements OnInit {
 
   constructor(
     private partidaService: PartidaService,
-    private temporadaService: TemporadaService,
     private campeonatoService: CampeonatoService,
   ) { }
 
@@ -40,14 +38,6 @@ export class PartidasCampeonatoComponent implements OnInit {
         this.campeonatosItens = data;
       }
     );
-  }
-
-  public nivelLigaChangeAction(){
-    /*this.temporadaService.getCampeonatosTemporadaAtual(this.nivelLigaSelected).subscribe(
-      data => {
-        this.campeonatosItens = data;
-      }
-    );*/
   }
 
   public campeonatoSelectChangeAction(){

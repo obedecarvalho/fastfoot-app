@@ -4,10 +4,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ClubeRanking } from 'src/app/model/clube-ranking.model';
 import { Clube } from 'src/app/model/clube.model';
 import { Liga, ligas } from 'src/app/model/liga.model';
-import { Temporada } from 'src/app/model/temporada.model';
 import { ClubeRankingService } from 'src/app/service/clube-ranking.service';
 import { ClubeService } from 'src/app/service/clube.service';
-import { TemporadaService } from 'src/app/service/temporada.service';
 
 @Component({
   selector: 'app-clube-ranking',
@@ -17,8 +15,6 @@ import { TemporadaService } from 'src/app/service/temporada.service';
 export class ClubeRankingComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
-
-  //temporadaItens: Temporada[];
 
   ligasItens: Liga[] = ligas;
 
@@ -30,8 +26,6 @@ export class ClubeRankingComponent implements OnInit {
 
   ligaSelected: Liga;
 
-  //temporadaSelected: Temporada;
-
   anoSelected: number;
 
   clubeSelected: Clube;
@@ -40,21 +34,12 @@ export class ClubeRankingComponent implements OnInit {
 
   constructor(
     private clubeRankingService: ClubeRankingService,
-    private temporadaService: TemporadaService,
     private clubeService: ClubeService
   ) { }
 
   ngOnInit(): void {
     this.getAnoClubeRankingItens();
   }
-
-  /*public getTemporadas(){
-    this.temporadaService.getTemporadas().subscribe(
-      data => {
-        this.temporadaItens = data;
-      }
-    )
-  }*/
 
   public getAnoClubeRankingItens(){
     console.log("getAnoClubeRankingItens#");
@@ -76,17 +61,9 @@ export class ClubeRankingComponent implements OnInit {
       data => {
         this.clubeRankingDataSource = new MatTableDataSource(data);
         this.clubeRankingDataSource.sort = this.sort;
-        //console.log(data);
       }
     )
     this.displayedColumns = ['clubeNome', 'posicaoGeral', 'classificacaoContinental', 'classificacaoNacional', 'classificacaoCopaNacional'];
-    /*this.clubeRankingService.getClubesRankingLiga(this.ligaSelected).subscribe(
-      data => {
-        this.clubeRankingDataSource = new MatTableDataSource(data);
-        this.clubeRankingDataSource.sort = this.sort;
-        console.log(data);
-      }
-    )*/
   }
 
   //TODO: validar dados
@@ -96,7 +73,6 @@ export class ClubeRankingComponent implements OnInit {
       data => {
         this.clubeRankingDataSource = new MatTableDataSource(data);
         this.clubeRankingDataSource.sort = this.sort;
-        //console.log(data);
       }
     )
     this.displayedColumns = ['clubeNome', 'ano', 'posicaoGeral', 'classificacaoContinental', 'classificacaoNacional', 'classificacaoCopaNacional'];

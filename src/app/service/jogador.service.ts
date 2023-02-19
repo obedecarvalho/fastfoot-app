@@ -10,8 +10,6 @@ import { Clube } from '../model/clube.model';
 })
 export class JogadorService {
 
-  //apiUrlJogadoresPorClube = 'http://localhost:8081/jogadoresPorClube/';
-
   apiUrl = AppSettings.API_ENDPOINT + 'jogadores'
 
   constructor(private httpClient: HttpClient) { }
@@ -20,8 +18,4 @@ export class JogadorService {
     return this.httpClient.get<Jogador[]>(this.apiUrl + '?idClube=' + clube.id);
   }
 
-  //Deprecated
-  /*public getJogadoresPorClube(idClube: number): Observable<Jogador[]> {
-    return this.httpClient.get<Jogador[]>(this.apiUrlJogadoresPorClube + idClube);
-  }*/
 }
