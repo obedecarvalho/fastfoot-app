@@ -1,5 +1,7 @@
+import { Clube } from "./clube.model";
+
 export class ClubeTituloRanking {
-    clubeNome: string;
+    clube: Clube;
 	titulosNacional: number;
     titulosNacionalII: number;
     titulosCopaNacional: number;
@@ -8,4 +10,6 @@ export class ClubeTituloRanking {
     titulosContinentalII: number;
     titulosContinentalIII: number;
     pontuacao: number;
+
+    clubeNome: string;
 }

@@ -10,7 +10,8 @@ import { AppSettings } from '../model/app-settings.model';
 })
 export class PartidaService {
 
-  apiUrlJogarPartidas = 'http://localhost:8081/proximaSemana/';
+  //apiUrlJogarPartidas = 'http://localhost:8081/proximaSemana/';
+  apiUrlJogarPartidas = AppSettings.API_ENDPOINT + 'jogarPartidasSemana';
 
   apiUrl = AppSettings.API_ENDPOINT + 'partidasJogavel';
 

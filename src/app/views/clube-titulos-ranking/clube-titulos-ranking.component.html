@@ -20,7 +20,7 @@
 <table mat-table [dataSource]="clubeRankingDataSource" matSort>
     <ng-container matColumnDef="clubeNome">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdMed">Clube</th>
-        <td mat-cell *matCellDef="let cr">{{cr.clubeNome}}</td>
+        <td mat-cell *matCellDef="let cr">{{cr.clube.nome}}</td>
     </ng-container>
 
     <ng-container matColumnDef="pontuacao">
