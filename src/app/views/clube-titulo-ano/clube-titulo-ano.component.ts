@@ -2,7 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ClubeTituloAno } from 'src/app/model/clube-titulo-ano.model';
-import { ClubeRankingService } from 'src/app/service/clube-ranking.service';
+import { Temporada } from 'src/app/model/temporada.model';
+import { ClubeTituloAnoServiceService } from 'src/app/service/clube-titulo-ano-service.service';
+import { TemporadaService } from 'src/app/service/temporada.service';
 
 @Component({
   selector: 'app-clube-titulo-ano',
@@ -15,14 +17,15 @@ export class ClubeTituloAnoComponent implements OnInit {
 
   displayedColumns: string[] = ['clubeNome', 'nivelCampeonato', 'ano'];
 
-  anoItens: number[];
-
   clubeRankingDataSource: MatTableDataSource<ClubeTituloAno>;
 
-  anoSelected: number;
+  temporadaItens: Temporada[];
+
+  temporadaSelected: Temporada;
 
   constructor(
-    private clubeRankingService: ClubeRankingService
+    private clubeTituloAnoServiceService: ClubeTituloAnoServiceService,
+    private temporadaService: TemporadaService
   ) { }
 
   ngOnInit(): void {
@@ -30,12 +33,11 @@ export class ClubeTituloAnoComponent implements OnInit {
   }
 
   public getAnoClubeRankingItens(){
-    console.log("getAnoClubeRankingItens#");
-    this.clubeRankingService.getAnoClubeRankingItens().subscribe(
+    this.temporadaService.getAll().subscribe(
       data => {
-        this.anoItens = data;
+        this.temporadaItens = data;
       }
-    )
+    );
   }
 
   public clearChangeAction(){
@@ -44,9 +46,9 @@ export class ClubeTituloAnoComponent implements OnInit {
 
   //TODO: validar dados
   public btSearchAction(){
-    console.log('ligaChangeAction#');
+    //console.log('ligaChangeAction#');
     this.clearChangeAction();
-    this.clubeRankingService.getClubeTituloAno(this.anoSelected).subscribe(
+    this.clubeTituloAnoServiceService.getByAno(this.temporadaSelected.ano).subscribe(
       data => {
         this.clubeRankingDataSource = new MatTableDataSource(data);
         this.clubeRankingDataSource.sort = this.sort;

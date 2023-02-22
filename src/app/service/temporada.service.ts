@@ -9,7 +9,7 @@ import { AppSettings } from '../model/app-settings.model';
 })
 export class TemporadaService {
 
-  //apiUrlNovaTemporada = 'http://localhost:8081/novaTemporada';
+  apiUrl = AppSettings.API_ENDPOINT + 'temporadas';
   apiUrlNovaTemporada = AppSettings.API_ENDPOINT + 'criarNovaTemporada';
 
   constructor(private httpClient: HttpClient) { }
@@ -18,4 +18,7 @@ export class TemporadaService {
     return this.httpClient.get<Temporada>(this.apiUrlNovaTemporada);
   }
 
+  public getAll() : Observable<Temporada[]> {
+    return this.httpClient.get<Temporada[]>(this.apiUrl);
+  }
 }

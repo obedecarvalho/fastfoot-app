@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ClubeTituloRanking } from 'src/app/model/clube-titulo-ranking.model';
-import { ClubeRankingService } from 'src/app/service/clube-ranking.service';
 import { ClubeTituloRankingService } from 'src/app/service/clube-titulo-ranking.service';
 
 @Component({
@@ -23,7 +22,6 @@ export class ClubeTitulosRankingComponent implements OnInit {
   ligaSelected: string;
 
   constructor(
-    private clubeRankingService: ClubeRankingService,
     private clubeTituloRankingService: ClubeTituloRankingService
   ) { }
 
@@ -39,14 +37,6 @@ export class ClubeTitulosRankingComponent implements OnInit {
   public btSearchAction(){
     console.log('ligaChangeAction#');
     this.clearChangeAction();
-    /*this.clubeRankingService.getClubesTitulosRankingLiga(this.ligaSelected).subscribe(
-      data => {
-        this.clubeRankingDataSource = new MatTableDataSource(data);
-        this.clubeRankingDataSource.sort = this.sort;
-        //console.log(data);
-      }
-    )*/
-
     if (this.ligaSelected == 'all'){
       this.clubeTituloRankingService.getAll().subscribe(
         data => {

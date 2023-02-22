@@ -4,8 +4,10 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ClubeRanking } from 'src/app/model/clube-ranking.model';
 import { Clube } from 'src/app/model/clube.model';
 import { Liga, ligas } from 'src/app/model/liga.model';
+import { Temporada } from 'src/app/model/temporada.model';
 import { ClubeRankingService } from 'src/app/service/clube-ranking.service';
 import { ClubeService } from 'src/app/service/clube.service';
+import { TemporadaService } from 'src/app/service/temporada.service';
 
 @Component({
   selector: 'app-clube-ranking',
@@ -20,21 +22,22 @@ export class ClubeRankingComponent implements OnInit {
 
   displayedColumns: string[];
 
-  anoItens: number[];
-
   clubeRankingDataSource: MatTableDataSource<ClubeRanking>;
 
   ligaSelected: Liga;
-
-  anoSelected: number;
 
   clubeSelected: Clube;
 
   clubesItens: Clube[];
 
+  temporadaItens: Temporada[];
+
+  temporadaSelected: Temporada;
+
   constructor(
     private clubeRankingService: ClubeRankingService,
-    private clubeService: ClubeService
+    private clubeService: ClubeService,
+    private temporadaService: TemporadaService
   ) { }
 
   ngOnInit(): void {
@@ -42,12 +45,11 @@ export class ClubeRankingComponent implements OnInit {
   }
 
   public getAnoClubeRankingItens(){
-    console.log("getAnoClubeRankingItens#");
-    this.clubeRankingService.getAnoClubeRankingItens().subscribe(
+    this.temporadaService.getAll().subscribe(
       data => {
-        this.anoItens = data;
+        this.temporadaItens = data;
       }
-    )
+    );
   }
 
   public clearChangeAction(){
@@ -57,7 +59,7 @@ export class ClubeRankingComponent implements OnInit {
   //TODO: validar dados
   public btSearchAction(){
     console.log('ligaChangeAction#');
-    this.clubeRankingService.getByLigaAndAno(this.ligaSelected, this.anoSelected).subscribe(
+    this.clubeRankingService.getByLigaAndAno(this.ligaSelected, this.temporadaSelected.ano).subscribe(
       data => {
         this.clubeRankingDataSource = new MatTableDataSource(data);
         this.clubeRankingDataSource.sort = this.sort;

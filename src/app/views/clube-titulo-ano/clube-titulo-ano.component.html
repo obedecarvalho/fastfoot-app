@@ -1,7 +1,7 @@
 <mat-form-field>
-    <mat-select [(value)]="anoSelected" (selectionChange)="btSearchAction()">
-        <mat-option [value]="a + 1" *ngFor="let a of anoItens">
-            {{a + 1}}
+    <mat-select [(value)]="temporadaSelected" (selectionChange)="btSearchAction()">
+        <mat-option [value]="t" *ngFor="let t of temporadaItens">
+            {{t.ano}}
         </mat-option>
     </mat-select>
 </mat-form-field>
@@ -19,7 +19,7 @@
 <table mat-table [dataSource]="clubeRankingDataSource" matSort>
     <ng-container matColumnDef="clubeNome">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdMed">Clube</th>
-        <td mat-cell *matCellDef="let cr">{{cr.clubeNome}}</td>
+        <td mat-cell *matCellDef="let cr">{{cr.clube.nome}}</td>
     </ng-container>
 
     <ng-container matColumnDef="nivelCampeonato">

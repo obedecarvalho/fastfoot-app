@@ -1,9 +1,9 @@
 <mat-tab-group>
     <mat-tab label="Por Ano">
         <mat-form-field>
-            <mat-select [(value)]="anoSelected" (selectionChange)="clearChangeAction()">
-                <mat-option [value]="a" *ngFor="let a of anoItens">
-                    {{a}}
+            <mat-select [(value)]="temporadaSelected" (selectionChange)="clearChangeAction()">
+                <mat-option [value]="t" *ngFor="let t of temporadaItens">
+                    {{t.ano}}
                 </mat-option>
             </mat-select>
         </mat-form-field>
