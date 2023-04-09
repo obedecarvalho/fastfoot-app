@@ -86,11 +86,12 @@ export class EscalacaoComponent implements OnInit {
 
   public salvar(){
     console.log('salvar');
-    var escalacaoClube = new EscalacaoClube();
+    this._snackBar.open("Ainda não implementado...", "OK", {duration: 5000});
+    /*var escalacaoClube = new EscalacaoClube();
     escalacaoClube.escalacaoTitular = this.escalacaoTitular;
     escalacaoClube.escalacaoReserva = this.escalacaoReserva;
     escalacaoClube.escalacaoSuplente = this.escalacaoSuplente;
-    this.escalacaoService.salvarEscalacaoClube(this.clubeSelected, escalacaoClube).subscribe(data => {console.log(data)});
+    this.escalacaoService.salvarEscalacaoClube(this.clubeSelected, escalacaoClube).subscribe(data => {console.log(data)});*/
   }
 
   public drop(event: CdkDragDrop<EscalacaoJogador[]>){
