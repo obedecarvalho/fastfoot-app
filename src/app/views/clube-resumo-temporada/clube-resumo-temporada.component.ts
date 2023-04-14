@@ -6,6 +6,7 @@ import { Clube } from 'src/app/model/clube.model';
 import { Liga, ligas } from 'src/app/model/liga.model';
 import { ClubeResumoTemporadaService } from 'src/app/service/clube-resumo-temporada.service';
 import { ClubeService } from 'src/app/service/clube.service';
+import { DefaultSortingDataAcessorUtils } from 'src/app/util/default-sorting-data-acessor.util';
 
 @Component({
   selector: 'app-clube-resumo-temporada',
@@ -18,7 +19,7 @@ export class ClubeResumoTemporadaComponent implements OnInit {
 
   estatisticas: MatTableDataSource<ClubeResumoTemporada>;
 
-  displayedColumns: string[] = ['nomeClube', 'ano', 'nivelCampeonato', 'posicaoFinal', 'jogos', 'vitorias', 'empates', 'golsPro', 'golsContra'];
+  displayedColumns: string[] = ['clube.nome', 'temporada.ano', 'nivelCampeonato', 'classificacaoNacional', 'jogos', 'vitorias', 'empates', 'golsPro', 'golsContra'];
 
   clubesItens: Clube[];
 
@@ -49,6 +50,7 @@ export class ClubeResumoTemporadaComponent implements OnInit {
       data => {
         this.estatisticas = new MatTableDataSource(data);
         this.estatisticas.sort = this.sort;
+        this.estatisticas.sortingDataAccessor = DefaultSortingDataAcessorUtils.pathDataAccessor;
       }
     );
   }

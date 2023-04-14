@@ -3,6 +3,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { PropostaTransferenciaJogador } from 'src/app/model/proposta-transferencia-jogador.model';
 import { PropostaTransferenciaJogadorService } from 'src/app/service/proposta-transferencia-jogador.service';
+import { DefaultSortingDataAcessorUtils } from 'src/app/util/default-sorting-data-acessor.util';
 
 @Component({
   selector: 'app-transferecia-jogador',
@@ -15,7 +16,7 @@ export class TransfereciaJogadorComponent implements OnInit {
 
   transferencias: MatTableDataSource<PropostaTransferenciaJogador>;
 
-  displayedColumns: string[] = ['nomeJogador', 'origem', 'destino', 'valor'];
+  displayedColumns: string[] = ['jogador.nome', 'clubeOrigem.nome', 'clubeDestino.nome', 'valorTransferencia'];
 
   constructor(private propostaTransferenciaJogadorService:PropostaTransferenciaJogadorService) { }
 
@@ -24,6 +25,7 @@ export class TransfereciaJogadorComponent implements OnInit {
       data => {
         this.transferencias = new MatTableDataSource(data);
         this.transferencias.sort = this.sort;
+        this.transferencias.sortingDataAccessor = DefaultSortingDataAcessorUtils.pathDataAccessor;
       }
     );
   }

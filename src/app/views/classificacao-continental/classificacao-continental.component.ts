@@ -6,6 +6,7 @@ import { Campeonato } from 'src/app/model/campeonato.model';
 import { Classificacao } from 'src/app/model/classificacao.model';
 import { CampeonatoService } from 'src/app/service/campeonato.service';
 import { ClassificacaoService } from 'src/app/service/classificacao.service';
+import { DefaultSortingDataAcessorUtils } from 'src/app/util/default-sorting-data-acessor.util';
 
 @Component({
   selector: 'app-classificacao-continental',
@@ -16,7 +17,7 @@ export class ClassificacaoContinentalComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns: string[] = ['posicao', 'nomeClube', 'jogos', 'pontos', 'vitorias', 'empates', 'derrotas', 'saldoGols', 'golsPro', 'golsContra'];
+  displayedColumns: string[] = ['posicao', 'clube.nome', 'numJogos', 'pontos', 'vitorias', 'empates', 'derrotas', 'saldoGols', 'golsPro', 'golsContra'];
 
   numeroGrupos: number[] = [1, 2, 3, 4];
 
@@ -50,6 +51,9 @@ export class ClassificacaoContinentalComponent implements OnInit {
       data => {
         this.classificacoesSource = new MatTableDataSource<Classificacao>(data);
         this.classificacoesSource.sort = this.sort;
+        this.classificacoesSource.sortingDataAccessor = DefaultSortingDataAcessorUtils.pathDataAccessor;
+
+        this.numeroGrupos = [... new Set(data.map(c => c.grupoCampeonato.numero).sort())];
       }
     )
   }

@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Partida } from 'src/app/model/partida.model';
 import { PartidaService } from 'src/app/service/partida.service';
+import { DefaultSortingDataAcessorUtils } from 'src/app/util/default-sorting-data-acessor.util';
 
 @Component({
   selector: 'app-partidas-semana',
@@ -14,7 +15,7 @@ export class PartidasSemanaComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns: string[] = ['numeroSemana','nomeCampeonato','numeroRodada','nomeClubeMandante','golsMandante','golsVisitante','nomeClubeVisitante'];
+  displayedColumns: string[] = ['rodada.semana.numero','nivelCampeonato','rodada.numero','clubeMandante.nome','golsMandante','golsVisitante','clubeVisitante.nome'];
 
   partidasSource: MatTableDataSource<Partida>;
 
@@ -43,6 +44,7 @@ export class PartidasSemanaComponent implements OnInit {
       data => {
         this.partidasSource = new MatTableDataSource(data);
         this.partidasSource.sort = this.sort;
+        this.partidasSource.sortingDataAccessor = DefaultSortingDataAcessorUtils.pathDataAccessor;
       }
     )
   }

@@ -8,6 +8,7 @@ import { Temporada } from 'src/app/model/temporada.model';
 import { ClubeRankingService } from 'src/app/service/clube-ranking.service';
 import { ClubeService } from 'src/app/service/clube.service';
 import { TemporadaService } from 'src/app/service/temporada.service';
+import { DefaultSortingDataAcessorUtils } from 'src/app/util/default-sorting-data-acessor.util';
 
 @Component({
   selector: 'app-clube-ranking',
@@ -63,9 +64,10 @@ export class ClubeRankingComponent implements OnInit {
       data => {
         this.clubeRankingDataSource = new MatTableDataSource(data);
         this.clubeRankingDataSource.sort = this.sort;
+        this.clubeRankingDataSource.sortingDataAccessor = DefaultSortingDataAcessorUtils.pathDataAccessor;
       }
     )
-    this.displayedColumns = ['clubeNome', 'posicaoGeral', 'classificacaoContinental', 'classificacaoNacional', 'classificacaoCopaNacional'];
+    this.displayedColumns = ['clube.nome', 'posicaoGeral', 'classificacaoContinental', 'classificacaoNacional', 'classificacaoCopaNacional'];
   }
 
   //TODO: validar dados
@@ -75,9 +77,10 @@ export class ClubeRankingComponent implements OnInit {
       data => {
         this.clubeRankingDataSource = new MatTableDataSource(data);
         this.clubeRankingDataSource.sort = this.sort;
+        this.clubeRankingDataSource.sortingDataAccessor = DefaultSortingDataAcessorUtils.pathDataAccessor;
       }
     )
-    this.displayedColumns = ['clubeNome', 'ano', 'posicaoGeral', 'classificacaoContinental', 'classificacaoNacional', 'classificacaoCopaNacional'];
+    this.displayedColumns = ['clube.nome', 'ano', 'posicaoGeral', 'classificacaoContinental', 'classificacaoNacional', 'classificacaoCopaNacional'];
   }
 
   public ligaChangeAction(){

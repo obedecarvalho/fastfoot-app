@@ -6,6 +6,7 @@ import { JogadorEstatisticasTemporada } from 'src/app/model/jogador-estatisticas
 import { Liga, ligas } from 'src/app/model/liga.model';
 import { ClubeService } from 'src/app/service/clube.service';
 import { JogadorEstatisticasTemporadaService } from 'src/app/service/jogador-estatisticas-temporada.service';
+import { DefaultSortingDataAcessorUtils } from 'src/app/util/default-sorting-data-acessor.util';
 
 @Component({
   selector: 'app-jogador-estatistica',
@@ -18,7 +19,7 @@ export class JogadorEstatisticaComponent implements OnInit {
 
   estatisticas: MatTableDataSource<JogadorEstatisticasTemporada>;
 
-  displayedColumns: string[] = ['nomeJogador', 'posicao', 'numeroJogos', 'golsMarcados', 'assistencias', 'golsSofridos'];
+  displayedColumns: string[] = ['jogador.nome', 'jogador.posicao', 'numeroJogos', 'golsMarcados', 'assistencias', 'golsSofridos'];
 
   clubesItens: Clube[];
 
@@ -49,6 +50,7 @@ export class JogadorEstatisticaComponent implements OnInit {
       data => {
         this.estatisticas = new MatTableDataSource(data);
         this.estatisticas.sort = this.sort;
+        this.estatisticas.sortingDataAccessor = DefaultSortingDataAcessorUtils.pathDataAccessor;
       }
     );
   }

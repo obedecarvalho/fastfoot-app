@@ -6,6 +6,7 @@ import { Campeonato } from 'src/app/model/campeonato.model';
 import { ClassificacaoProbabilidade } from 'src/app/model/classificacao-probabilidade.model';
 import { CampeonatoService } from 'src/app/service/campeonato.service';
 import { ClubeProbabilidadeService } from 'src/app/service/clube-probabilidade.service';
+import { DefaultSortingDataAcessorUtils } from 'src/app/util/default-sorting-data-acessor.util';
 
 @Component({
   selector: 'app-probabilidades',
@@ -16,7 +17,8 @@ export class ProbabilidadesComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns: string[] = ['posicao', 'nomeClube', 'pontos', 'vitorias', 'saldoGols', 'probCampeao', 'probRebAce', 'probCont', 'probContII', 'probContIII', 'probCopNac'];
+  displayedColumns: string[] = ['classificacao.posicao', 'clube.nome', 'classificacao.pontos', 'classificacao.vitorias', 'classificacao.saldoGols', 
+                                    'probabilidadeCampeao', 'probRebAce', 'probabilidadeClassificacaoCI', 'probabilidadeClassificacaoCII', 'probabilidadeClassificacaoCIII', 'probabilidadeClassificacaoCNI'];
 
   classificacoesSource: MatTableDataSource<ClassificacaoProbabilidade>;
 
@@ -44,6 +46,7 @@ export class ProbabilidadesComponent implements OnInit {
       data => {
         this.classificacoesSource = new MatTableDataSource<ClassificacaoProbabilidade>(data);
         this.classificacoesSource.sort = this.sort;
+        this.classificacoesSource.sortingDataAccessor = DefaultSortingDataAcessorUtils.pathDataAccessor;
       }
     );
   }

@@ -9,7 +9,7 @@ import { ClassificacaoProbabilidade } from 'src/app/model/classificacao-probabil
 })
 export class ClubeProbabilidadeService {
 
-  apiUrl = AppSettings.API_ENDPOINT + 'clubesProbabilidade';
+  apiUrl = AppSettings.API_ENDPOINT + 'campeonatoClubeProbabilidades';
 
   constructor(private httpClient: HttpClient) { }
 

@@ -19,20 +19,20 @@
 
 
 <table mat-table [dataSource]="partidasSource" matSort>
-    <ng-container matColumnDef="numeroSemana">
+    <ng-container matColumnDef="rodada.semana.numero">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">Semana</th>
         <td mat-cell *matCellDef="let partida">{{partida.rodada.semana.numero}}</td>
     </ng-container>
-    <ng-container matColumnDef="nomeCampeonato">
+    <ng-container matColumnDef="nivelCampeonato">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdMed">Campeonato</th>
         <td mat-cell *matCellDef="let partida">{{partida.nivelCampeonato}}</td>
     </ng-container>
-    <ng-container matColumnDef="numeroRodada">
+    <ng-container matColumnDef="rodada.numero">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">Rodada</th>
         <td mat-cell *matCellDef="let partida">{{partida.rodada.numero}}</td>
     </ng-container>
 
-    <ng-container matColumnDef="nomeClubeMandante">
+    <ng-container matColumnDef="clubeMandante.nome">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdMed">Mandante</th>
         <td mat-cell *matCellDef="let partida">
             <span *ngIf="partida.clubeMandante">
@@ -62,7 +62,7 @@
             </span>
         </td>
     </ng-container>
-    <ng-container matColumnDef="nomeClubeVisitante">
+    <ng-container matColumnDef="clubeVisitante.nome">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdMed">Visitante</th>
         <td mat-cell *matCellDef="let partida">
             <span *ngIf="partida.clubeVisitante">

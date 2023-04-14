@@ -15,7 +15,7 @@
 </mat-form-field>
 
 <table mat-table matSort [dataSource]="jogadoresDataSource">
-    <ng-container matColumnDef="nomeJogador">
+    <ng-container matColumnDef="nome">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdMed">Nome</th>
         <td mat-cell *matCellDef="let j">{{j.nome}}</td>
     </ng-container>
@@ -31,14 +31,14 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">Idade</th>
         <td mat-cell *matCellDef="let j">{{j.idade}}</td>
     </ng-container>
-    <ng-container matColumnDef="forca">
+    <ng-container matColumnDef="forcaGeral">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">Força</th>
         <td mat-cell *matCellDef="let j">{{j.forcaGeral}}</td>
     </ng-container>
 
     <ng-container matColumnDef="valorTransferencia">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">Valor</th>
-        <td mat-cell *matCellDef="let j">{{j.valorTransferencia}}</td>
+        <td mat-cell *matCellDef="let j">{{j.valorTransferencia | currency:'EUR'}}</td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

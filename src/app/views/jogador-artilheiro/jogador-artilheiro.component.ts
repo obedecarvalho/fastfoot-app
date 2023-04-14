@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Artilharia } from 'src/app/model/artilharia.model';
 
 import { ArtilhariaService } from 'src/app/service/artilharia.service';
+import { DefaultSortingDataAcessorUtils } from 'src/app/util/default-sorting-data-acessor.util';
 
 @Component({
   selector: 'app-jogador-artilheiro',
@@ -16,7 +17,7 @@ export class JogadorArtilheiroComponent implements OnInit {
 
   estatisticas: MatTableDataSource<Artilharia>;
 
-  displayedColumns: string[] = ['nomeJogador', 'nomeClube', 'qtdeGols'];
+  displayedColumns: string[] = ['jogador.nome', 'jogador.clube.nome', 'qtdeGols'];
 
   constructor(private artilhariaService: ArtilhariaService) { }
 
@@ -26,6 +27,7 @@ export class JogadorArtilheiroComponent implements OnInit {
       data => {
         this.estatisticas = new MatTableDataSource(data);
         this.estatisticas.sort = this.sort;
+        this.estatisticas.sortingDataAccessor = DefaultSortingDataAcessorUtils.pathDataAccessor;
       }
     )
   }

@@ -6,6 +6,7 @@ import { Jogador } from 'src/app/model/jogador.model';
 import { Liga, ligas } from 'src/app/model/liga.model';
 import { ClubeService } from 'src/app/service/clube.service';
 import { JogadorService } from 'src/app/service/jogador.service';
+import { DefaultSortingDataAcessorUtils } from 'src/app/util/default-sorting-data-acessor.util';
 
 @Component({
   selector: 'app-jogador',
@@ -16,7 +17,7 @@ export class JogadorComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns: string[] = ['nomeJogador', 'posicao', 'numero', 'idade', 'forca', 'valorTransferencia'];
+  displayedColumns: string[] = ['nome', 'posicao', 'numero', 'idade', 'forcaGeral', 'valorTransferencia'];
 
   jogadoresDataSource: MatTableDataSource<Jogador>;
 
@@ -51,7 +52,8 @@ export class JogadorComponent implements OnInit {
       data => {
         this.jogadoresDataSource = new MatTableDataSource(data);
         this.jogadoresDataSource.sort = this.sort;
-        console.log(data);
+        //console.log(data);
+        //this.jogadoresDataSource.sortingDataAccessor = DefaultSortingDataAcessorUtils.pathDataAccessor;
       }
     )
   }

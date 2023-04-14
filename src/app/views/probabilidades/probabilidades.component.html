@@ -7,79 +7,79 @@
 </mat-form-field>
 
 <table mat-table [dataSource]="classificacoesSource" matSort>
-    <ng-container matColumnDef="posicao">
+    <ng-container matColumnDef="classificacao.posicao">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">Posição</th>
         <td mat-cell *matCellDef="let class">{{class.classificacao.posicao}}</td>
     </ng-container>
-    <ng-container matColumnDef="nomeClube">
+    <ng-container matColumnDef="clube.nome">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdMed">Clube</th>
         <td mat-cell *matCellDef="let class">{{class.clube.nome}}</td>
     </ng-container>
-    <ng-container matColumnDef="jogos">
+    <ng-container matColumnDef="classificacao.numJogos">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">Jogos</th>
         <td mat-cell *matCellDef="let class">{{class.classificacao.numJogos}}</td>
     </ng-container>
-    <ng-container matColumnDef="pontos">
+    <ng-container matColumnDef="classificacao.pontos">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">Pontos</th>
         <td mat-cell *matCellDef="let class">{{class.classificacao.pontos}}</td>
     </ng-container>
 
-    <ng-container matColumnDef="vitorias">
+    <ng-container matColumnDef="classificacao.vitorias">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">Vitórias</th>
         <td mat-cell *matCellDef="let class">{{class.classificacao.vitorias}}</td>
     </ng-container>
-    <ng-container matColumnDef="empates">
+    <ng-container matColumnDef="classificacao.empates">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">Empates</th>
         <td mat-cell *matCellDef="let class">{{class.classificacao.empates}}</td>
     </ng-container>
-    <ng-container matColumnDef="derrotas">
+    <ng-container matColumnDef="classificacao.derrotas">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">Derrotas</th>
         <td mat-cell *matCellDef="let class">{{class.classificacao.derrotas}}</td>
     </ng-container>
 
-    <ng-container matColumnDef="saldoGols">
+    <ng-container matColumnDef="classificacao.saldoGols">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">SG</th>
         <td mat-cell *matCellDef="let class">{{class.classificacao.saldoGols}}</td>
     </ng-container>
-    <ng-container matColumnDef="golsPro">
+    <ng-container matColumnDef="classificacao.golsPro">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">GP</th>
         <td mat-cell *matCellDef="let class">{{class.classificacao.golsPro}}</td>
     </ng-container>
-    <ng-container matColumnDef="golsContra">
+    <ng-container matColumnDef="classificacao.golsContra">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">GC</th>
         <td mat-cell *matCellDef="let class">{{class.classificacao.golsContra}}</td>
     </ng-container>
 
-    <ng-container matColumnDef="probCampeao">
+    <ng-container matColumnDef="probabilidadeCampeao">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">Campeão</th>
-        <td mat-cell *matCellDef="let class">{{class.probabilidadeCampeao * 100}}%</td>
+        <td mat-cell *matCellDef="let class">{{class.probabilidadeCampeao | percent:'.2' }}</td>
     </ng-container>
     <ng-container matColumnDef="probRebAce">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">Acesso/Rebaixamento</th>
         <td mat-cell *matCellDef="let class">
             <span *ngIf="class.classificacao.campeonato.nivelCampeonato == 'NACIONAL'">
-                {{class.probabilidadeRebaixamento*100}}%
+                {{class.probabilidadeRebaixamento | percent:'.2' }}
             </span>
             <span *ngIf="class.classificacao.campeonato.nivelCampeonato == 'NACIONAL_II'">
-                {{class.probabilidadeAcesso*100}}%
+                {{class.probabilidadeAcesso | percent:'.2' }}
             </span>
         </td>
     </ng-container>
-    <ng-container matColumnDef="probCont">
+    <ng-container matColumnDef="probabilidadeClassificacaoCI">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">CI</th>
-        <td mat-cell *matCellDef="let class">{{class.probabilidadeClassificacaoCI*100}}%</td>
+        <td mat-cell *matCellDef="let class">{{class.probabilidadeClassificacaoCI | percent:'.2' }}</td>
     </ng-container>
-    <ng-container matColumnDef="probContII">
+    <ng-container matColumnDef="probabilidadeClassificacaoCII">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">CII</th>
-        <td mat-cell *matCellDef="let class">{{class.probabilidadeClassificacaoCII*100}}%</td>
+        <td mat-cell *matCellDef="let class">{{class.probabilidadeClassificacaoCII | percent:'.2' }}</td>
     </ng-container>
-    <ng-container matColumnDef="probContIII">
+    <ng-container matColumnDef="probabilidadeClassificacaoCIII">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">CIII</th>
-        <td mat-cell *matCellDef="let class">{{class.probabilidadeClassificacaoCIII*100}}%</td>
+        <td mat-cell *matCellDef="let class">{{class.probabilidadeClassificacaoCIII | percent:'.2' }}</td>
     </ng-container>
-    <ng-container matColumnDef="probCopNac">
+    <ng-container matColumnDef="probabilidadeClassificacaoCNI">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">Copa Nacional</th>
-        <td mat-cell *matCellDef="let class">{{class.probabilidadeClassificacaoCNI*100}}%</td>
+        <td mat-cell *matCellDef="let class">{{class.probabilidadeClassificacaoCNI | percent:'.2' }}</td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -5,6 +5,7 @@ import { Campeonato } from 'src/app/model/campeonato.model';
 import { Partida } from 'src/app/model/partida.model';
 import { CampeonatoService } from 'src/app/service/campeonato.service';
 import { PartidaService } from 'src/app/service/partida.service';
+import { DefaultSortingDataAcessorUtils } from 'src/app/util/default-sorting-data-acessor.util';
 
 @Component({
   selector: 'app-partidas-campeonato',
@@ -15,7 +16,7 @@ export class PartidasCampeonatoComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns: string[] = ['numeroSemana','nomeCampeonato','numeroRodada','nomeClubeMandante','golsMandante','golsVisitante','nomeClubeVisitante'];
+  displayedColumns: string[] = ['rodada.semana.numero','nivelCampeonato','rodada.numero','clubeMandante.nome','golsMandante','golsVisitante','clubeVisitante.nome'];
 
   partidasSource: MatTableDataSource<Partida>;
 
@@ -45,6 +46,7 @@ export class PartidasCampeonatoComponent implements OnInit {
       data => {
         this.partidasSource = new MatTableDataSource(data);
         this.partidasSource.sort = this.sort;
+        this.partidasSource.sortingDataAccessor = DefaultSortingDataAcessorUtils.pathDataAccessor;
       }
     );
   }

@@ -5,6 +5,7 @@ import { ClubeTituloAno } from 'src/app/model/clube-titulo-ano.model';
 import { Temporada } from 'src/app/model/temporada.model';
 import { ClubeTituloAnoServiceService } from 'src/app/service/clube-titulo-ano-service.service';
 import { TemporadaService } from 'src/app/service/temporada.service';
+import { DefaultSortingDataAcessorUtils } from 'src/app/util/default-sorting-data-acessor.util';
 
 @Component({
   selector: 'app-clube-titulo-ano',
@@ -15,7 +16,7 @@ export class ClubeTituloAnoComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns: string[] = ['clubeNome', 'nivelCampeonato', 'ano'];
+  displayedColumns: string[] = ['clube.nome', 'nivelCampeonato', 'ano'];
 
   clubeRankingDataSource: MatTableDataSource<ClubeTituloAno>;
 
@@ -53,6 +54,7 @@ export class ClubeTituloAnoComponent implements OnInit {
         this.clubeRankingDataSource = new MatTableDataSource(data);
         this.clubeRankingDataSource.sort = this.sort;
         //console.log(data);
+        this.clubeRankingDataSource.sortingDataAccessor = DefaultSortingDataAcessorUtils.pathDataAccessor;
       }
     )
   }

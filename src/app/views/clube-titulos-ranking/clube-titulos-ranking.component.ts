@@ -3,6 +3,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ClubeTituloRanking } from 'src/app/model/clube-titulo-ranking.model';
 import { ClubeTituloRankingService } from 'src/app/service/clube-titulo-ranking.service';
+import { DefaultSortingDataAcessorUtils } from 'src/app/util/default-sorting-data-acessor.util';
 
 @Component({
   selector: 'app-clube-titulos-ranking',
@@ -15,7 +16,7 @@ export class ClubeTitulosRankingComponent implements OnInit {
 
   ligasItens: string[] = ['GENEBE', 'SPAPOR', 'ITAFRA', 'ENGLND'];
 
-  displayedColumns: string[] = ['clubeNome', 'pontuacao', 'titulosNacional', 'titulosNacionalII', 'titulosCopaNacional', 'titulosCopaNacionalII', 'titulosContinental', 'titulosContinentalII', 'titulosContinentalIII'];
+  displayedColumns: string[] = ['clube.nome', 'pontuacao', 'titulosNacional', 'titulosNacionalII', 'titulosCopaNacional', 'titulosCopaNacionalII', 'titulosContinental', 'titulosContinentalII', 'titulosContinentalIII'];
 
   clubeRankingDataSource: MatTableDataSource<ClubeTituloRanking>;
 
@@ -42,6 +43,7 @@ export class ClubeTitulosRankingComponent implements OnInit {
         data => {
           this.clubeRankingDataSource = new MatTableDataSource(data);
           this.clubeRankingDataSource.sort = this.sort;
+          this.clubeRankingDataSource.sortingDataAccessor = DefaultSortingDataAcessorUtils.pathDataAccessor;
           //console.log(data);
         }
       )
@@ -50,6 +52,7 @@ export class ClubeTitulosRankingComponent implements OnInit {
         data => {
           this.clubeRankingDataSource = new MatTableDataSource(data);
           this.clubeRankingDataSource.sort = this.sort;
+          this.clubeRankingDataSource.sortingDataAccessor = DefaultSortingDataAcessorUtils.pathDataAccessor;
           //console.log(data);
         }
       )

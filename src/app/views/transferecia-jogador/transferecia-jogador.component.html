@@ -1,19 +1,19 @@
 <table mat-table matSort [dataSource]="transferencias">
-    <ng-container matColumnDef="nomeJogador">
+    <ng-container matColumnDef="jogador.nome">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdMed">Nome</th>
         <td mat-cell *matCellDef="let j">{{j.jogador.nome}}</td>
     </ng-container>
-    <ng-container matColumnDef="origem">
+    <ng-container matColumnDef="clubeOrigem.nome">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdMed">Clube Origem</th>
         <td mat-cell *matCellDef="let j">{{j.clubeOrigem.nome}}</td>
     </ng-container>
-    <ng-container matColumnDef="destino">
+    <ng-container matColumnDef="clubeDestino.nome">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdMed">Clube Destino</th>
         <td mat-cell *matCellDef="let j">{{j.clubeDestino.nome}}</td>
     </ng-container>
-    <ng-container matColumnDef="valor">
+    <ng-container matColumnDef="valorTransferencia">
         <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">Valor</th>
-        <td mat-cell *matCellDef="let j">{{j.valorTransferencia}}</td>
+        <td mat-cell *matCellDef="let j">{{j.valorTransferencia | currency:'EUR'}}</td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

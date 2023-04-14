@@ -7,17 +7,17 @@
 </mat-form-field>
 
 <mat-tab-group>
-    <mat-tab *ngFor="let ng of numeroGrupos" label="{{ng}}">
+    <mat-tab *ngFor="let ng of numeroGrupos" label="Grupo {{ng}}">
         <table mat-table [dataSource]="classificacoesSource" matSort>
             <ng-container matColumnDef="posicao">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">Posição</th>
                 <td mat-cell *matCellDef="let class">{{class.posicao}}</td>
             </ng-container>
-            <ng-container matColumnDef="nomeClube">
+            <ng-container matColumnDef="clube.nome">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdMed">Clube</th>
                 <td mat-cell *matCellDef="let class">{{class.clube.nome}}</td>
             </ng-container>
-            <ng-container matColumnDef="jogos">
+            <ng-container matColumnDef="numJogos">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header class="tdPeq">Jogos</th>
                 <td mat-cell *matCellDef="let class">{{class.numJogos}}</td>
             </ng-container>
