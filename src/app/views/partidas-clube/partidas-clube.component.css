@@ -14,3 +14,7 @@ table {
 .tdMed {
     width: 20%;
 }
+
+.logoImg {
+    border-radius: 50%;
+}

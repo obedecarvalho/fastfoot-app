@@ -18,3 +18,7 @@ table {
 .hidden{
     display:none;
 }
+
+.logoImg {
+    border-radius: 50%;
+}

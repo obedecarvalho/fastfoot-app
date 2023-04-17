@@ -3,4 +3,5 @@ export class Clube {
     //nomeClube: string;//Deprecated
     id: number;
     nome: string;
+    logo: string;
 }
