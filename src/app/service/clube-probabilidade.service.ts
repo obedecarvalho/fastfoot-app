@@ -14,6 +14,6 @@ export class ClubeProbabilidadeService {
   constructor(private httpClient: HttpClient) { }
 
   public getByIdCampeonatoAndSemanaAtual(idCampeonato: number): Observable<ClassificacaoProbabilidade[]> {
-    return this.httpClient.get<ClassificacaoProbabilidade[]>(this.apiUrl + '/semanaAtual?comClassificacao=true&idCampeonato=' + idCampeonato);
+    return this.httpClient.get<ClassificacaoProbabilidade[]>(this.apiUrl + '/rodadaAtual?comClassificacao=true&idCampeonato=' + idCampeonato);
   }
 }
