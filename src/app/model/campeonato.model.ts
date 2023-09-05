@@ -1,3 +1,5 @@
+import { LigaJogo } from "./liga-jogo.model";
+
 export class Campeonato {
     idCampeonato: number;
     nomeCampeonato: string;
@@ -7,4 +9,5 @@ export class Campeonato {
     liga: string;
     nome: string;
     nivelCampeonato: string;
+    ligaJogo: LigaJogo;
 }

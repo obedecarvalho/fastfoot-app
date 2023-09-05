@@ -14,6 +14,6 @@ export class ClubeTituloAnoServiceService {
   constructor(private httpClient: HttpClient) { }
 
   public getByAno(ano: number): Observable<ClubeTituloAno[]> {
-    return this.httpClient.get<ClubeTituloAno[]>(this.apiUrl + ano);
+    return this.httpClient.get<ClubeTituloAno[]>(this.apiUrl + ano + '?idJogo=' + AppSettings.DEFAULT_ID_JOGO);
   }
 }

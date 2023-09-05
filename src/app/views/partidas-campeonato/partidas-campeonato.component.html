@@ -10,7 +10,12 @@
 <mat-form-field>
     <mat-select [(value)]="campeonatoSelected" (selectionChange)="campeonatoSelectChangeAction()">
         <mat-option [value]="campeonato" *ngFor="let campeonato of campeonatosItens">
-            {{campeonato.liga}} - {{campeonato.nivelCampeonato}}
+            <span *ngIf="campeonato.ligaJogo">
+                {{campeonato.ligaJogo.liga}} - {{campeonato.nivelCampeonato}}
+            </span>
+            <span *ngIf="!campeonato.ligaJogo">
+                {{campeonato.nivelCampeonato}}
+            </span>
         </mat-option>
     </mat-select>
 </mat-form-field>

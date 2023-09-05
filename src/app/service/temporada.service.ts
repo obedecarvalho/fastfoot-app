@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Temporada } from 'src/app/model/temporada.model';
 import { AppSettings } from '../model/app-settings.model';
+import { Jogo } from '../model/jogo.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +15,11 @@ export class TemporadaService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public novaTemporada() : Observable<Temporada> {
-    return this.httpClient.get<Temporada>(this.apiUrlNovaTemporada);
+  public novaTemporada(jogo?: Jogo) : Observable<Temporada> {
+    return this.httpClient.get<Temporada>(this.apiUrlNovaTemporada + '/' + AppSettings.DEFAULT_ID_JOGO);
   }
 
-  public getAll() : Observable<Temporada[]> {
-    return this.httpClient.get<Temporada[]>(this.apiUrl);
+  public getAll(jogo?: Jogo) : Observable<Temporada[]> {
+    return this.httpClient.get<Temporada[]>(this.apiUrl + '?idJogo=' + AppSettings.DEFAULT_ID_JOGO);
   }
 }
