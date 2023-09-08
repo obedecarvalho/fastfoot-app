@@ -13,4 +13,5 @@ export class ClubeResumoTemporada {
     classificacaoNacional: any;
     classificacaoCopaNacional: any;
     classificacaoContinental: any;
+    classificacaoDescricao: string;
 }
