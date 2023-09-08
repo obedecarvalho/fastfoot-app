@@ -33,6 +33,8 @@ import { TransfereciaJogadorComponent } from './views/transferecia-jogador/trans
 import { JogadorArtilheiroComponent } from './views/jogador-artilheiro/jogador-artilheiro.component';
 import { JogadorEstatisticaComponent } from './views/jogador-estatistica/jogador-estatistica.component';
 import { ClubeResumoTemporadaComponent } from './views/clube-resumo-temporada/clube-resumo-temporada.component';
+import { JogoComponent } from './views/jogo/jogo.component';
+
 
 @NgModule({
   declarations: [
@@ -53,7 +55,8 @@ import { ClubeResumoTemporadaComponent } from './views/clube-resumo-temporada/cl
     TransfereciaJogadorComponent,
     JogadorArtilheiroComponent,
     JogadorEstatisticaComponent,
-    ClubeResumoTemporadaComponent
+    ClubeResumoTemporadaComponent,
+    JogoComponent
   ],
   imports: [
     BrowserModule,

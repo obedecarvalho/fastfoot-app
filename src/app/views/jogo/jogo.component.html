@@ -1,0 +1,5 @@
+<mat-select [(value)]="jogoSelected" (selectionChange)="onChangeActionJogo()">
+    <mat-option [value]="j" *ngFor="let j of jogos">
+        {{j.id}} - {{j.dataCriacao}}
+    </mat-option>
+</mat-select>
