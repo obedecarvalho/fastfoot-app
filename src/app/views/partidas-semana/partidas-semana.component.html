@@ -35,8 +35,8 @@
         <td mat-cell *matCellDef="let partida">
             <span *ngIf="partida.partidaJogada">
                 {{partida.golsMandante}}
-                <span *ngIf="partida.golsMandantePenalts || partida.golsVisitantePenalts">
-                    ({{partida.golsMandantePenalts}})
+                <span *ngIf="partida.partidaDisputaPenalties">
+                    ({{partida.partidaDisputaPenalties.golsMandantePenalties}})
                 </span>
             </span>
         </td>
@@ -46,8 +46,8 @@
         <td mat-cell *matCellDef="let partida">
             <span *ngIf="partida.partidaJogada">
                 {{partida.golsVisitante}}
-                <span *ngIf="partida.golsMandantePenalts || partida.golsVisitantePenalts">
-                    ({{partida.golsVisitantePenalts}})
+                <span *ngIf="partida.partidaDisputaPenalties">
+                    ({{partida.partidaDisputaPenalties.golsVisitantePenalties}})
                 </span>
             </span>
         </td>

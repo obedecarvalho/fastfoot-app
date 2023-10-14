@@ -19,7 +19,7 @@ export class JogadorEstatisticaComponent implements OnInit {
 
   estatisticas: MatTableDataSource<JogadorEstatisticasTemporada>;
 
-  displayedColumns: string[] = ['jogador.nome', 'jogador.posicao', 'numeroJogos', 'golsMarcados', 'assistencias', 'golsSofridos'];
+  displayedColumns: string[] = ['jogador.nome', 'jogador.posicao', 'jogos', 'golsMarcados', 'assistencias', 'golsSofridos'];
 
   clubesItens: Clube[];
 

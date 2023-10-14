@@ -1,4 +1,5 @@
 import { Clube } from "./clube.model";
+import { PartidaDisputaPenalties } from "./partida-disputa-penalties.model";
 import { Rodada } from "./rodada.model";
 
 export class Partida {
@@ -20,6 +21,8 @@ export class Partida {
 	nomeCampeonato: string;	
 	numeroGrupoCampeonato: number;	
 
-	golsMandantePenalts: number;
-	golsVisitantePenalts: number;
+	//golsMandantePenalts: number;
+	//golsVisitantePenalts: number;
+
+	partidaDisputaPenalties: PartidaDisputaPenalties;
 }
